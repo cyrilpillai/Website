@@ -1,0 +1,41 @@
+<div class="text-center pt-2">
+    {{ if .Site.Params.footer.socialNetworks.linkedin }}
+    <span class="pt-3">
+        <a href="{{ .Site.Params.footer.socialNetworks.linkedin }}" aria-label="linkedin" target="_blank">
+            <i class="fa-brands fa-linkedin" font-size="40px"></i>
+        </a>
+    </span>
+    {{ end }}
+
+    {{ if .Site.Params.footer.socialNetworks.github }}
+    <span class="px-1"> 
+        <a href="{{ .Site.Params.footer.socialNetworks.github }}" aria-label="github" target="_blank">
+            <i class="fa-brands fa-square-github" font-size="40px"></i>
+        </a>
+    </span>
+    {{ end }}
+
+    {{ if .Site.Params.footer.socialNetworks.twitter }}
+    <span class="px-1"> 
+    <a href="{{ .Site.Params.footer.socialNetworks.twitter }}" aria-label="twitter" target="_blank">
+        <i class="fa-brands fa-square-x-twitter" font-size="40px"></i>
+    </a>
+    </span>
+    {{ end }}
+
+    {{ if .Site.Params.footer.socialNetworks.instagram }}
+    <span class="px-1"> 
+    <a href="{{ .Site.Params.footer.socialNetworks.instagram }}" aria-label="instagram" target="_blank">
+        <i class="fa-brands fa-square-instagram" font-size="40px"></i>
+    </a>
+    </span>
+    {{ end }}
+
+    {{ if .Site.Params.footer.socialNetworks.facebook }}
+    <span class="px-1"> 
+    <a href="{{ .Site.Params.footer.socialNetworks.facebook }}" aria-label="facebook" target="_blank">
+        <i class="fa-brands fa-square-facebook" font-size="40px"></i>
+    </a>
+    </span>
+    {{ end }}
+</div>
