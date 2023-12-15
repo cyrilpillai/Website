@@ -21,15 +21,16 @@
                         <div class="card">
                             <div class="card-body">
                                 <div>
-                                    <a href="{{ .companyUrl }}" target="_blank"><span class="h4">{{ .company }}</span></a>
+                                    <a href="{{ .companyUrl }}" target="_blank"><span class="h3">{{ .company }}</span></a>
                                     <small>-</small>
                                     <i>{{ .location }}</i>
                                     <br>
+                                    <div class="text-secondary"><small>{{ .date }}</small></div>
                                 {{ range .roles }}
                                 </br>
                                     <div class="pb-1">
                                         <h5 class="card-title">{{ .title }}</h5>
-                                        <small>{{ .date }}</small>
+                                        <div class="text-secondary"><small>{{ .date }}</small></div>
                                     </div>
                                     <div class="py-1 experience-content">
                                         {{ .content | markdownify }}

@@ -103,7 +103,9 @@ params:
     intro: "Hi, my name is"
     title: "Cyril Pillai."
     subtitle: "I build things for your 📱"
-    content: "A seasoned software engineer specializing in Android development. Avid explorer of other technologies like Flutter, Web development, and Backend systems."
+    content: |-
+        A seasoned software engineer specializing in Android development. </br>
+        I dabble in other technologies like Flutter, Web development, and Backend systems.
     image: /images/portraits/work.webp
     bottomImage:
       enable: false
@@ -131,13 +133,13 @@ params:
     title: "About Me"
     image: "/images/portraits/personal.webp"
     content: |-
-      I am an experienced software engineer, crafting pixel perfect android apps while consistently exploring other technologies driven by the urge to solve problems and create lasting impact.
+      I am an experienced software engineer with 9+ years of experience, developing android apps while consistently exploring other technologies on the side. I am driven by the urge to solve problems and create lasting impact.
 
-      Unapologetically a sleepaholic and an introvert at heart, I find solace in books and immerse myself in the worlds of TV shows, movies, and anime.
+      An introvert at heart and an unapologetic sleepaholic, I find solace in my bed, books and in the worlds of TV shows, movies, and anime.
 
-      As a dedicated foodie and avid traveler, I enthusiastically embrace all cuisines and delicacies.
+      As a dedicated foodie and avid traveler, I enthusiastically embrace all cuisines and look forward to exploring new places.
       
-      I seek adrenaline rushes through debugging intricate/obscure problems during work and embarking on heart-pounding escapades like skydiving, bungee jumping, and scuba diving off hours.
+      I seek adrenaline rushes from debugging intricate/obscure problems at work and embarking on heart-pounding escapades like skydiving, bungee jumping, and scuba diving off hours.
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
@@ -156,43 +158,67 @@ params:
     items:
       - company: "Gojek"
         companyUrl: "https://www.gojek.io/"
-        date: "Sep 2018 - present"
+        date: "Sep 2018 - Present"
         location: "Bengaluru, India"
         roles:
-          - title: "Lead Software Engineer"
-            date: "Oct 2021 - present • 2 yrs 3 mos"
-            content: "Working on GoSend"
-          - title: "Senior Software Engineer"
-            date: "May 2020 - Oct 2021 • 1 yr 6 mos"
-            content: "Working on GoSend"
-          - title: "Product Engineer"
-            date: "Sep 2018 - Apr 2020 • 1 yr 8 mos"
-            content: "Working on GoSend"
+          - title: "Lead Software Engineer - Logistics"
+            date: "Oct 2021 - Present"
+            content: |-
+                - Collaborating with cross functional teams to build exciting features for users
+                - Leading the entire mobile team in building robust features with focus on engineering principles
+                - Advocating technical excellence - documentation, code coverage
+                - Spearheading the rewrite of the codebase to make it more scalable & maintainable
+                - Mentoring and guiding other teammates
+                - Delivered umpteen high impact features like 4W Launch, Package Insurance & Saved Address
+          - title: "Senior Software Engineer - Logistics"
+            date: "May 2020 - Oct 2021"
+            content: |-
+                - Delivered numerous critical features like Intercity Deliveries, AndroidX Migration, CC/DC & Number Masking
+                - Collaborated with Backend team to come up with optimal approaches & designed API contracts
+                - Owned E2E migration of third party analytics tool to in-house solution for 3 products
+                - Mentored juniors by pairing with them and critically reviewing their PRs
+                - Helped recruiters by interviewing candidates and vetting the overall interviewing process
+          - title: "Product Engineer - Logistics"
+            date: "Sep 2018 - Apr 2020"
+            content: |-
+                - Worked on GoSend, GoBox & Kilat Driver app by supporting business requests and fixing issues
+                - Collaborated with other teammates to build features like Payment Widget integration, Live Tracking & fraud mitigation for order reversals 
+                - Extensively worked on documentation by charting out unstructured processes, practices, etc.
+                - Collaborated with cross team developers to build scalable solutions
       
       - company: "m.Paani (now LoveLocal)"
         companyUrl: "https://www.lovelocal.in/"
-        date: "Sep 2018 - present"
+        date: "May 2016 - Aug 2018"
         location: "Mumbai, India"
         roles:
           - title: "Android Developer"
-            date: "May 2016 - Aug 2018 • 2 yrs 4 mos"
             content: |-
-                Worked on enhancing the android apps to provide a rich user experience enabling the brand partners to understand and serve their customers better as well as the consumers to make the most of their shopping escapades.
+                Worked on enhancing android apps to provide a rich user experience, enabling brand partners to understand and serve their customers better as well as the consumers to make the most of their shopping escapades.
 
-                - Maintained both consumer & retailer specific apps
-                - Re-architected the legacy codebase by in MVVM
-                - Shipped tons of features like Aadhaar integration
+                - Focused on building offline first mobile apps for consumers & retailers
+                - Re-architected the legacy codebase in MVVM
+                - Shipped several features like Aadhaar integration, customer campaigning & payments
+                - Contributed extensively on devising a POS system by conducting market research and building necessary functionalities
+                - Created lightweight reward redemption SDK for clients
 
       - company: "SKCS LLP"
         companyUrl: "https://www.skcsllp.com/"
-        date: "Sep 2018 - present"
+        date: "Jan 2015 - Mar 2016"
         location: "Mumbai, India"
         roles:
           - title: "Android Associate"
-            date: "Jan 2015 - Mar 2016 • 1 yr 3 mos"
-            content: Worked as an associate, collaborating with the organisation and helping them in converting ideas to 
-              products. Worked on a wide variety of Android apps for various clients seeing through the whole 
-              development life cycle of apps.
+            content: |-
+              Collaborated with the organisation in helping convert ideas to 
+              products. Worked on an array of Android apps for various clients, seeing the entire 
+              development life cycle through.
+
+              Key apps developed:
+
+              - FoodiSoft - A complete POS system for restaurants/canteens
+              - Mumbai Spaces - Platform for buying/selling real estate properties
+              - BusyKey - A keyboard app with customisable words for quick typing
+              - VoizeUp - An audio sharing social network
+
 
   # Education
   education:
@@ -206,21 +232,21 @@ params:
           url: "https://mu.ac.in/"
         date: "Jun 2012 - Apr 2015"
         content: |-
-          Got a Bachelors degree in Computer Science wherein I grasped CS Fundamentals and developed an interest for software development.
+          Obtained a Bachelor's degree in Computer Science where I grasped CS Fundamentals and developed an interest for software development.
           
           <br>
 
           ###### Extracurricular Activities
-            - Secured 2nd place in C Debugging Contest held in College
+            - Secured 2nd place in C Debugging Contest held in college
             - Among Top 60 in I-know-vention Quiz Contest (2013) organized by SEED Infotech
-            - Volunteered in organising college fest
+            - Volunteered in organising college fest - Vibes
       - title: "HSC"
         school:
           name: "Maharashtra State Board"
           url: "https://mahahsscboard.in/"
         date: "2010 - 2012"
         content: |-
-          Pursued Science stream and opted for Computer Science as elective subject.
+          Pursued the Science stream and opted for Computer Science as elective subject.
       - title: "SSC"
         school:
           name: "Maharashtra State Board"
