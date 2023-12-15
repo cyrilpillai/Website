@@ -20,15 +20,15 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ .companyUrl }}" target="_blank"><h4 class="card-title">{{ .company }}</h4></a>
-                                <div class="pb-1">
-                                    <small>{{ .location }}</small>
-                                </br>
-                                </div>
+                                <div>
+                                    <a href="{{ .companyUrl }}" target="_blank"><span class="h4">{{ .company }}</span></a>
+                                    <small>-</small>
+                                    <i>{{ .location }}</i>
+                                    <br>
                                 {{ range .roles }}
                                 </br>
                                     <div class="pb-1">
-                                        <h6 class="card-title">{{ .title }}</h6>
+                                        <h5 class="card-title">{{ .title }}</h5>
                                         <small>{{ .date }}</small>
                                     </div>
                                     <div class="py-1 experience-content">
