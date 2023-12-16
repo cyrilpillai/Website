@@ -15,7 +15,7 @@ outputs:
 Paginate: 3
 enableRobotsTXT: true
 disqusShortname: cyrilpillai
-# googleAnalytics: G-MEASUREMENT_ID
+googleAnalytics: G-9662PFE3TZ
 
 markup:
   goldmark:
