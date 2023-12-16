@@ -228,7 +228,7 @@ header .navbar.animate {
 }
 
 #about ul li::before {
-    content: "▹";
+    content: "▸";
     color: var(--primary-color);
     position: absolute;
     left: 0px;
@@ -353,7 +353,7 @@ header .navbar.animate {
 }
 
 #education .education-container .tab-content .tab-pane ul li::before {
-    content: "▹";
+    content: "▸";
     color: var(--primary-color);
     position: absolute;
     left: 0px;
@@ -462,6 +462,25 @@ header .navbar.animate {
     color: var(--primary-color) !important;
     text-decoration: none;
     opacity: 0.9;
+}
+
+#experience .card .card-body .experience-content  ul {
+    overflow: hidden;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+#experience .card .card-body .experience-content  ul li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+#experience .card .card-body .experience-content  ul li::before {
+    content: "▸";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0px;
 }
 
 #experience .card .card-body > a h6 {

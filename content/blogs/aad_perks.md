@@ -45,7 +45,7 @@ My friend took the exam in September 2016. He had a rough experience as it took 
 It was New Year’s eve when I registered for the exam exactly at 6:00 PM IST. I looked at the documentation and the code and dived head first into it. I sat in one corner engrossed in the project. I transitioned from 2016 to 2017 while **CODING** 😎. I completed the project and submitted it for review on the 1st of Jan. I cleared the coding round as well as the exit interview and received my [badge](https://www.credential.net/fed04716-dfd7-4cdd-a5c0-c715203f93c7?key=3e23ab0e9e7da3e91315148114610999255b3b234940d3e96e77f4d6c0402e8f) within 2 weeks.
 
 <p align="center">
-    <img src="/images/blogs/aad_perks/mail.webp">
+    <img src="/images/blogs/aad_perks/mail/one.webp">
 </p>
 
 ---
@@ -65,18 +65,14 @@ After that, they gave me another surprise probably the biggest one I have ever r
 
 > ###### Invitation to Google I/O 2017. All expenses paid. 😍
 
-| | |
-| - | - |
-|![](/images/blogs/aad_perks/visit_one.webp) |![](/images/blogs/aad_perks/visit_two.webp)|
-
 <p align="center">
-    <img src="/images/blogs/aad_perks/visit_one.webp" width="40%" height="250">
-    <img src="/images/blogs/aad_perks/visit_two.webp" width="40%" height="250">
+    <img src="/images/blogs/aad_perks/visit/one.webp" width="40%" height="250">
+    <img src="/images/blogs/aad_perks/visit/two.webp" width="40%" height="250">
 </p>
 
 <p align="center">
-    <img src="/images/blogs/aad_perks/visit_three.webp" width="40%" height="200">
-    <img src="/images/blogs/aad_perks/visit_four.webp" width="40%" height="200">
+    <img src="/images/blogs/aad_perks/visit/three.webp" width="40%" height="200">
+    <img src="/images/blogs/aad_perks/visit/four.webp" width="40%" height="200">
 </p>
 
 ## AAD Summit
@@ -91,7 +87,7 @@ After that, they gave me another surprise probably the biggest one I have ever r
 It was a two day event. I met Akash & John again and we got to see Google’s Bengaluru office and I met a lot of other Android Developers. I had a great time meeting others with the same interests as me and talking to them was fun because everyone understood the *Android lingo*.
 
 <p align="center">
-    <img src="/images/blogs/aad_perks/blr_one.webp">
+    <img src="/images/blogs/aad_perks/blr/one.webp">
 </p>
 
 ---
@@ -112,14 +108,14 @@ It was a two day event. I met Akash & John again and we got to see Google’s Be
 Attending Google I/O was a lifetime experience for me. I hope every developer attends this Developer Conference at least once. Currently, I couldn’t think of attending Google I/O or visiting USA in general because of financial restrictions. Surely sometime in the future, but not any time soon. I was flabbergasted when they invited me to I/O. I was there for a week and that was one of the best experiences of my life. I met Akash & John on the day I landed and they gave us a tour of the Googleplex *(which is orders of magnitude better than what I had imagined)*. I had a great time at the conference talking to Googlers, developers from other parts of the world, meeting people whom I admired and looked up to, running around Sandboxes witnessing fantastic things created by Developers. I also got a lot of freebies like T-shirt (obvious), Google Home, Photobook, Droids, stickers, a photo of my brainwaves and a lot more. After the conference ended, I went to San Francisco and stayed there for a couple of days and did what tourists normally do in SF *(Golden Gate Bridge, Alcatraz Island, Fisherman’s Wharf, Lombard Street, Ghirardelli Square and much more)*. I also visited Chipotle which was a few blocks from my hotel because a friend had literally threatened me saying if I didn’t eat a burrito at Chipotle, I would have to face some serious consequences. I also had to buy chocolates for friends and family back in India *(that’s how it works)*.
 
 <p align="center">
-    <img src="/images/blogs/aad_perks/io_one.webp">
+    <img src="/images/blogs/aad_perks/io/one.webp">
 </p>
 
 ---
 
 ## YouTube Video
 <p align="center">
-    <img src="/images/blogs/aad_perks/yt.webp">
+    <img src="/images/blogs/aad_perks/yt/one.webp">
 </p>
 
 After I/O, it was back to normal again. No more surprises. I started attending events more often now. GDGs, Solve For India roadshow, ML Roadshow, etc. I completely forgot about the video that was shot because it had been months and they hadn’t released anyone’s story yet. Then the Associate Android Developer stories started rolling out somewhere around August. I knew every person whose video was being published and I congratulated them personally. I was eagerly waiting for my video at the start but then the fear of messing up in the video hit me so hard that I actually started hoping they would scrap my video and never publish it on YouTube. Then one day, I received an email from a Googler informing me that they would be publishing my story in a few hours. I became restless, it was the same feeling as we generally get on a day when some important result is going to be announced. I received a notification few hours later, I sat in a corner, plugged in my earphones and watched the video. I have to admit that the video turned out to be much better than I expected. There are some parts where I messed up but I can live with that. And now when I see anyone’s story *(not just developer stories, but anyone’s journey in general)*, I am much more forgiving about petty errors and mistakes they make as now I have realized that we aren’t actors who would flawlessly say or do something on screen but are normal guys having a tough time hiding our nervousness and excitement while saying what we want to.
@@ -135,7 +131,7 @@ After I/O, it was back to normal again. No more surprises. I started attending e
 Google Developer Days were announced. And I was glad they were hosting a GDD in Bengaluru, India. This was supposed to be the biggest event by Google in India till date. I was pretty excited about it. I registered for it and was immediately added to their wait list. I hoped I would get a reservation but I knew it would be difficult as this wasn’t just any event. People from all around the world would have registered for it. Luckily, after a few weeks I received a mail from Google stating that all of the AADs would have a guaranteed spot in the event. I had a great time at the event and it was much like the I/O experience but at a smaller scale. I met a lot of people and some of them recognized me because of the video and asked me for guidance in taking up the exam. That feeling when someone would start the conversation with “I saw your video” was just amazing. I got a lot of freebies here as well like T-shirt (obvious), some more T-shirts, VR Headset, Android Things kit, stickers and a lot more. This was in the most literal sense, mini I/O. Also, the weather in Bengaluru this time was just awesome. Last time when I visited Bengaluru for the summit in April, I was pretty disappointed with the weather as its known for its wonderful weather and all of the hype seemed justified this time.
 
 <p align="center">
-    <img src="/images/blogs/aad_perks/gdd_one.webp">
+    <img src="/images/blogs/aad_perks/gdd/one.webp">
 </p>
 
 ---
@@ -145,7 +141,7 @@ Google Developer Days were announced. And I was glad they were hosting a GDD in 
 After the video was published, a lot of people congratulated me and told me that my story has inspired them to work harder. Lot of people commented on the YouTube video *(I have read each and every one of them)*, lot of my friends commented on the FB post I shared commenting how proud they felt after watching the video. I got crazy number of friend requests on FB and connection requests on LinkedIn. My college professors, batchmates, seniors & juniors messaged me saying how inspirational the video was and wished me all the best for my future endeavors. My family members watched the video on loop for a couple of days after it was published. My colleagues have appreciated the hard work I have put in but they also constantly keep on joking about my obsession with Google.
 
 <p align="center">
-    <img src="/images/blogs/aad_perks/rec_one.webp">
+    <img src="/images/blogs/aad_perks/rec/one.webp">
 </p>
 
 ## Lastly,
@@ -153,7 +149,7 @@ After the video was published, a lot of people congratulated me and told me that
 If you are an Android Developer who made it to the end of this blog but still isn’t convinced to take the exam, check these out
 
 <p align="center">
-    <img src="/images/blogs/aad_perks/android_one.webp">
+    <img src="/images/blogs/aad_perks/android/one.webp">
 </p>
 
 > ###### Yes! I got to take a photo with the legends of the Android World.

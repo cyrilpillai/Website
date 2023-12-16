@@ -34,7 +34,7 @@ params:
   title: "Cyril Pillai"
   description: Portfolio website of a software engineer
   # staticPath: ""  # The path to serve the static files from
-  # favicon: "/fav.png"
+  favicon: "/images/logo.png"
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
@@ -213,7 +213,6 @@ params:
               development life cycle through.
 
               Key apps developed:
-
               - FoodiSoft - A complete POS system for restaurants/canteens
               - Mumbai Spaces - Platform for buying/selling real estate properties
               - BusyKey - A keyboard app with customisable words for quick typing
