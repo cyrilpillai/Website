@@ -4,7 +4,6 @@
 
 ### Hugo ###
 # Generated files by hugo
-/public/
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
@@ -16,3 +15,8 @@ hugo.linux
 
 # Temporary lock file while building
 .hugo_build.lock
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log

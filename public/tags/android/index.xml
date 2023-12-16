@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Cyril Pillai</title>
+    <link>https://cyrilpillai.com/tags/android/</link>
+    <description>Recent content in Android on Cyril Pillai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Aug 2019 23:29:21 +0530</lastBuildDate>
+    <atom:link href="https://cyrilpillai.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Six Tips to Build Great Mobile Apps</title>
+      <link>https://cyrilpillai.com/blogs/mobile_app_tips/</link>
+      <pubDate>Thu, 22 Aug 2019 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/mobile_app_tips/</guid>
+      <description>This post is a follow up to Are You Building Your App Right? If you haven’t read that one, I highly recommend going through it first:&#xA;Now that you’re all caught up, let’s dive back into what you need to build a great app.&#xA;1. Graphics A picture is worth a thousand words Most of the apps in this day and age are driven by graphics. Ingenious graphical illustrations and visual elements in products make them pleasing to use.</description>
+    </item>
+    <item>
+      <title>Are You Building Your App Right?</title>
+      <link>https://cyrilpillai.com/blogs/mobile_app_essentials/</link>
+      <pubDate>Thu, 25 Jul 2019 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/mobile_app_essentials/</guid>
+      <description>If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.&#xA;This series post pens down some essentials you should consider integrating into every app you build. Here we go:</description>
+    </item>
+    <item>
+      <title>A Guide to Tackling Huge Codebases</title>
+      <link>https://cyrilpillai.com/blogs/huge_codebases/</link>
+      <pubDate>Tue, 29 Jan 2019 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/huge_codebases/</guid>
+      <description>I recently joined GOJEK as a Product Engineer as part of the GO-LOGISTICS team. I’ve been doing Android Development for over four years, but when I first ‘git pulled’ GoHost (the monorepo for the Android consumer app), I was intimidated by the codebase. I have worked with codebases that had four to five contributors, but this was a different beast altogether.&#xA;80+ modules, 20+ active contributors, ~20 mins for a clean build, and different coding styles/architectures in different modules.</description>
+    </item>
+    <item>
+      <title>Expecting the Exceptions</title>
+      <link>https://cyrilpillai.com/blogs/expecting_exceptions/</link>
+      <pubDate>Wed, 25 Jul 2018 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/expecting_exceptions/</guid>
+      <description>Error Format Most of the APIs have a defined format in which they return errors. This contract helps the API consumers in handling the errors.&#xA;At m.Paani, we too have a contract for raising errors. The API sends a JSON list containing N error objects. A typical error response would look something like&#xA;[ { &amp;#34;field&amp;#34;: &amp;#34;non_field_errors&amp;#34;, &amp;#34;code&amp;#34;: 4005, &amp;#34;client_message&amp;#34;: &amp;#34;Please try logging in again.&amp;#34;, &amp;#34;server_message&amp;#34;: &amp;#34;Token Expired at 2018-07-11T10:30:00Z&amp;#34; } ] field: Contains name of the field only if it’s a field error else returns non_field_errors</description>
+    </item>
+    <item>
+      <title>Perks of being an Associate Android Developer </title>
+      <link>https://cyrilpillai.com/blogs/aad_perks/</link>
+      <pubDate>Mon, 01 Jan 2018 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/aad_perks/</guid>
+      <description>Note: This is not a guide explaining the format of the exam or how to crack it and become a Google certified Associate Android Developer. Its just me blabbering about my experience and the impact this certification has had on me. This is my first ever attempt at writing a blog. I hope you guys will go easy on me.&#xA;Let’s get started I am a Google fanboy. I try to stay updated with the happenings in the Googley world, be it Android, Web, Cloud, VR, AR, ML, IoT, hot air balloons, modular phones, glasses and pretty much everything that is Google.</description>
+    </item>
+  </channel>
+</rss>

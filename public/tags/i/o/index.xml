@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>I/O on Cyril Pillai</title>
+    <link>https://cyrilpillai.com/tags/i/o/</link>
+    <description>Recent content in I/O on Cyril Pillai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://cyrilpillai.com/tags/i/o/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Perks of being an Associate Android Developer </title>
+      <link>https://cyrilpillai.com/blogs/aad_perks/</link>
+      <pubDate>Mon, 01 Jan 2018 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/aad_perks/</guid>
+      <description>Note: This is not a guide explaining the format of the exam or how to crack it and become a Google certified Associate Android Developer. Its just me blabbering about my experience and the impact this certification has had on me. This is my first ever attempt at writing a blog. I hope you guys will go easy on me.&#xA;Let’s get started I am a Google fanboy. I try to stay updated with the happenings in the Googley world, be it Android, Web, Cloud, VR, AR, ML, IoT, hot air balloons, modular phones, glasses and pretty much everything that is Google.</description>
+    </item>
+  </channel>
+</rss>
