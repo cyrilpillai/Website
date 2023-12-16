@@ -112,7 +112,7 @@ params:
     button:
       enable: true
       name: "Resume"
-      url: "/pdfs/resume_cyril_pillai.pdf"
+      url: "/pdfs/Résumé - Cyril Pillai.pdf"
       download: true
       newPage: false
     socialLinks:
@@ -167,7 +167,7 @@ params:
                 - Collaborating with cross functional teams to build exciting features for users
                 - Leading the entire mobile team in building robust features with focus on engineering principles
                 - Advocating technical excellence - documentation, code coverage
-                - Spearheading the rewrite of the codebase to make it more scalable & maintainable
+                - Spearheading the rewrite of the legacy codebase to make it more scalable & maintainable
                 - Mentoring and guiding other teammates
                 - Delivered umpteen high impact features like 4W Launch, Package Insurance & Saved Address
           - title: "Senior Software Engineer - Logistics"
