@@ -151,6 +151,12 @@ params:
         - "NodeJS"
         - "Python"
 
+  # Featured
+  featured:
+    enable: true
+    title: "Featured"
+    ytVideoId: "KySt9FPGD8k"
+
   # Experience
   experience:
     enable: true
