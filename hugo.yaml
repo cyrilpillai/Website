@@ -112,7 +112,7 @@ params:
     button:
       enable: true
       name: "Resume"
-      url: "/pdfs/Resume - Cyril Pillai.pdf"
+      url: "/pdfs/Cyril_Pillai_Resume.pdf"
       download: true
       newPage: false
     socialLinks:
