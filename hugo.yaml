@@ -146,8 +146,8 @@ params:
       items:
         - "Android"
         - "Kotlin"
+        - "React Native"
         - "Flutter"
-        - "HTML"
         - "NodeJS"
         - "Python"
 
@@ -162,19 +162,27 @@ params:
     enable: true
     # title: "Custom Name"
     items:
+      - company: "super.money by Flipkart"
+        companyUrl: "https://super.money/"
+        date: "Aug 2024 - Present"
+        location: "Bengaluru, India"
+        roles:
+          - title: "Software Development Engineer III"
+            content: |-
+                Building super.money at Flipkart, as part of the Mobile Platform Team. Employing in-depth knowledge of Android Native, while also exploring and gaining expertise in React Native.
       - company: "Gojek"
         companyUrl: "https://www.gojek.io/"
-        date: "Sep 2018 - Present"
+        date: "Sep 2018 - Aug 2024"
         location: "Bengaluru, India"
         roles:
           - title: "Lead Software Engineer - Logistics"
             date: "Oct 2021 - Present"
             content: |-
-                - Collaborating with cross functional teams to build exciting features for users
-                - Leading the entire mobile team in building robust features with focus on engineering principles
-                - Advocating technical excellence - documentation, code coverage
-                - Spearheading the rewrite of the legacy codebase to make it more scalable & maintainable
-                - Mentoring and guiding other teammates
+                - Collaborated with cross functional teams to build exciting features for users
+                - Lead the entire mobile team in building robust features with focus on engineering principles
+                - Advocated technical excellence - documentation, code coverage
+                - Spearheaded the rewrite of the legacy codebase to make it more scalable & maintainable
+                - Mentored and guided other teammates
                 - Delivered umpteen high impact features like 4W Launch, Package Insurance & Saved Address
           - title: "Senior Software Engineer - Logistics"
             date: "May 2020 - Oct 2021"
