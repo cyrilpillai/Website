@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="generator" content="Hugo 0.138.0"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/images/logo.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9662PFE3TZ"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9662PFE3TZ');
+        }
+      </script>
+<meta property="og:url" content="https://cyrilpillai.com/">
+  <meta property="og:site_name" content="Cyril Pillai">
+  <meta property="og:title" content="Cyril Pillai">
+  <meta property="og:description" content="Portfolio website of a software engineer">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cyril Pillai">
+  <meta name="twitter:description" content="Portfolio website of a software engineer">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+
+
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        width: .5em;
+        height: .5em;
+        background-color: var(--background-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px var(--background-color);
+        border-radius: 1rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: var(--secondary-color);
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+<meta name="description" content=Portfolio&#32;website&#32;of&#32;a&#32;software&#32;engineer>
+<link rel="stylesheet" href="/css/index.css" media="all">
+<link rel="stylesheet" href="/css/projects.css" media="all">
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+  <title>
+Cyril Pillai
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  false ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;        
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                Cyril Pillai
+                
+            </a>
+
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Bytes of Wisdom">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="hero" class="py-5 align-middle">
+    <div class="container px-3 px-sm-5 px-md-5 px-lg-5 pt-lg-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-8 content animate" id="primary-font">
+                <span class="subtitle">
+                    Hi, my name is
+                </span>
+                <h2>
+                    Cyril Pillai.
+                </h2>
+                <h3>
+                    I build things for your 📱
+                </h3>
+                <p class="hero-content">
+                    A seasoned software engineer specializing in Android development. </br>
+I dabble in other technologies like Flutter, React Native, Web development, and Backend systems.
+                </p>
+                <div class="row">
+                    <div class="col-auto h-100">
+                        
+                        <a href="/pdfs/Cyril_Pillai_Resume.pdf" class="btn" download
+			  >
+                            Resume
+                        </a>
+                        
+                    </div>
+                    <div class="col-auto px-0 h-100"><span>
+    
+    <span class="px-1">
+        <a href="https://www.linkedin.com/in/cyrilpillai/" target="_blank" class="btn social-icon">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </span>
+    
+    <span class="px-1">
+        <a href="https://github.com/cyrilpillai" target="_blank" class="btn social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+    </span>
+    
+    <span class="px-1">
+        <a href="https://twitter.com/cyril_pillai" target="_blank" class="btn social-icon">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+    </span>
+    
+
+    
+</span></div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-9 pt-5 image animate px-5 px-md-5 px-lg-0 text-center">
+                        <img src="/images/portraits/work.webp"
+                            class="img-thumbnail mx-auto"
+                            alt=""
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<section id="about" class="py-0 py-sm-5">
+    <div class="container bg-transparent">
+        <h3 class="text-center bg-transparent">About Me</h3>
+        <div class="bg-transparent row justify-content-center px-3 py-5">
+            
+            <div class="col-sm-12 col-md-8 col-lg-4 mb-5 mb-sm-0 mb-md-5 mb-lg-0 d-none d-sm-none d-md-block">
+                <div class="image d-flex px-5">
+                    <img src="/images/portraits/personal.webp" class="img-thumbnail mx-auto rounded-circle" alt="">
+                </div>
+            </div>
+            
+            <div class="col-sm-12 col-md-12 col-lg-8 content">
+                <p>I am an experienced software engineer with 10+ years of experience, developing android apps while consistently exploring other technologies on the side. I am driven by the urge to solve problems and create lasting impact.</p>
+<p>An introvert at heart and an unapologetic sleepaholic, I find solace in my bed, books and in the worlds of TV shows, movies, and anime.</p>
+<p>As a dedicated foodie and avid traveler, I enthusiastically embrace all cuisines and look forward to exploring new places.</p>
+<p>I seek adrenaline rushes from debugging intricate/obscure problems at work and embarking on heart-pounding escapades like skydiving, bungee jumping, and scuba diving off hours.</p>
+
+
+                
+                Here are a few technologies I&#39;ve been working with recently:
+                <ul>
+                    
+                    <li>Android</li>
+                    
+                    <li>Kotlin</li>
+                    
+                    <li>React Native</li>
+                    
+                    <li>Flutter</li>
+                    
+                    <li>NodeJS</li>
+                    
+                    <li>Python</li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="experience" class="py-5">
+    <div class="container">
+        <h3 class="text-center">Experience</h3>
+        <div class="row justify-content-center py-5">
+            
+            
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    
+
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <a href="https://revolut.com/" target="_blank"><span class="h3">Revolut</span></a>
+                                    <small>-</small>
+                                    <i>Dubai, United Arab Emirates</i>
+                                    <br>
+                                    <div class="text-secondary"><small>Apr 2025 - Present</small></div>
+                                
+                                </br>
+                                    <div class="pb-1">
+                                        <h5 class="card-title">Senior Software Engineer</h5>
+                                        <div class="text-secondary"><small></small></div>
+                                    </div>
+                                    <div class="py-1 experience-content">
+                                        Enhancing the analytics experience and delivering advanced features for Trading Pro users to improve engagement, usability, and performance.
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    
+
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <a href="https://super.money/" target="_blank"><span class="h3">super.money by Flipkart</span></a>
+                                    <small>-</small>
+                                    <i>Bengaluru, India</i>
+                                    <br>
+                                    <div class="text-secondary"><small>Aug 2024 - Apr 2025</small></div>
+                                
+                                </br>
+                                    <div class="pb-1">
+                                        <h5 class="card-title">Software Development Engineer III</h5>
+                                        <div class="text-secondary"><small></small></div>
+                                    </div>
+                                    <div class="py-1 experience-content">
+                                        <ul>
+<li>Led the initiative of building a Transaction Ledger on the app enhancing offline experience.</li>
+<li>Introduced build flavors eliminating the need to manually change files during development increasing overall development efficiency of the team.</li>
+<li>Built Aim to Pay using Gravity Sensor enabling users to promptly scan QR codes.</li>
+<li>Revamped the Transaction Detail experience with intuitive animations and smart nudges, significantly improving user interaction and cross-selling potential.</li>
+<li>Documented processes to create a knowledge base that can be leveraged by engineers and other stakeholders.</li>
+</ul>
+
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    
+
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <a href="https://www.gotocompany.com//" target="_blank"><span class="h3">GoTo Group</span></a>
+                                    <small>-</small>
+                                    <i>Bengaluru, India</i>
+                                    <br>
+                                    <div class="text-secondary"><small>Sep 2018 - Aug 2024</small></div>
+                                
+                                </br>
+                                    <div class="pb-1">
+                                        <h5 class="card-title">Lead Software Engineer - Logistics</h5>
+                                        <div class="text-secondary"><small>Oct 2021 - Aug 2024</small></div>
+                                    </div>
+                                    <div class="py-1 experience-content">
+                                        <ul>
+<li>Collaborated with cross functional teams to build exciting features for users</li>
+<li>Led the entire mobile team in building robust features with focus on engineering principles</li>
+<li>Advocated technical excellence - documentation, code coverage</li>
+<li>Spearheaded the rewrite of the legacy codebase to make it more scalable &amp; maintainable</li>
+<li>Mentored and guided other teammates</li>
+<li>Delivered umpteen high impact features like 4W Launch, Package Insurance &amp; Saved Address</li>
+</ul>
+
+                                    </div>
+                                
+                                </br>
+                                    <div class="pb-1">
+                                        <h5 class="card-title">Senior Software Engineer - Logistics</h5>
+                                        <div class="text-secondary"><small>May 2020 - Oct 2021</small></div>
+                                    </div>
+                                    <div class="py-1 experience-content">
+                                        <ul>
+<li>Delivered numerous critical features like Intercity Deliveries, AndroidX Migration, CC/DC &amp; Number Masking</li>
+<li>Collaborated with Backend team to come up with optimal approaches &amp; designed API contracts</li>
+<li>Owned E2E migration of third party analytics tool to in-house solution for 3 products</li>
+<li>Mentored juniors by pairing with them and critically reviewing their PRs</li>
+<li>Helped recruiters by interviewing candidates and vetting the overall interviewing process</li>
+</ul>
+
+                                    </div>
+                                
+                                </br>
+                                    <div class="pb-1">
+                                        <h5 class="card-title">Product Engineer - Logistics</h5>
+                                        <div class="text-secondary"><small>Sep 2018 - Apr 2020</small></div>
+                                    </div>
+                                    <div class="py-1 experience-content">
+                                        <ul>
+<li>Worked on GoSend, GoBox &amp; Kilat Driver app by supporting business requests and fixing issues</li>
+<li>Collaborated with other teammates to build features like Payment Widget integration, Live Tracking &amp; fraud mitigation for order reversals</li>
+<li>Extensively worked on documentation by charting out unstructured processes, practices, etc.</li>
+<li>Collaborated with cross team developers to build scalable solutions</li>
+</ul>
+
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    
+
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <a href="https://www.lovelocal.in/" target="_blank"><span class="h3">m.Paani (now LoveLocal)</span></a>
+                                    <small>-</small>
+                                    <i>Mumbai, India</i>
+                                    <br>
+                                    <div class="text-secondary"><small>May 2016 - Aug 2018</small></div>
+                                
+                                </br>
+                                    <div class="pb-1">
+                                        <h5 class="card-title">Android Developer</h5>
+                                        <div class="text-secondary"><small></small></div>
+                                    </div>
+                                    <div class="py-1 experience-content">
+                                        <p>Worked on enhancing android apps to provide a rich user experience, enabling brand partners to understand and serve their customers better as well as the consumers to make the most of their shopping escapades.</p>
+<ul>
+<li>Focused on building offline first mobile apps for consumers &amp; retailers</li>
+<li>Re-architected the legacy codebase in MVVM</li>
+<li>Shipped several features like Aadhaar integration, customer campaigning &amp; payments</li>
+<li>Contributed extensively on devising a POS system by conducting market research and building necessary functionalities</li>
+<li>Created lightweight reward redemption SDK for clients</li>
+</ul>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    
+
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <a href="https://www.skcsllp.com/" target="_blank"><span class="h3">SKCS LLP</span></a>
+                                    <small>-</small>
+                                    <i>Mumbai, India</i>
+                                    <br>
+                                    <div class="text-secondary"><small>Jan 2015 - Mar 2016</small></div>
+                                
+                                </br>
+                                    <div class="pb-1">
+                                        <h5 class="card-title">Android Associate</h5>
+                                        <div class="text-secondary"><small></small></div>
+                                    </div>
+                                    <div class="py-1 experience-content">
+                                        <p>Collaborated with the organisation in helping convert ideas to
+products. Worked on an array of Android apps for various clients, seeing the entire
+development life cycle through.</p>
+<p>Key apps developed:</p>
+<ul>
+<li>FoodiSoft - A complete POS system for restaurants/canteens</li>
+<li>Mumbai Spaces - Platform for buying/selling real estate properties</li>
+<li>BusyKey - A keyboard app with customisable words for quick typing</li>
+<li>VoizeUp - An audio sharing social network</li>
+</ul>
+
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<section id="education" class="py-5">
+    <div class="container">
+        <h3 class="text-center">Education</h3>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8 col-lg-8 py-5">
+                <div class="education-container px-3 pt-2">
+                    <ul class="nav nav-pills mb-3 bg-transparent primary-font" id="pills-tab" role="tablist">
+                        
+                        
+                        <li class="nav-item px-1 bg-transparent" role="presentation">
+                            <div 
+                                class="nav-link active bg-transparent" 
+                                aria-selected="true" 
+                                role="tab" 
+                                data-bs-toggle="pill"
+                                id='BSc-Jun-2012---Apr-2015-tab'
+                                data-bs-target='#pills-BSc-Jun-2012---Apr-2015'
+                                aria-controls='BSc-Jun-2012---Apr-2015' 
+                            >
+                                BSc
+                            </div>
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item px-1 bg-transparent" role="presentation">
+                            <div 
+                                class="nav-link bg-transparent" 
+                                aria-selected="true" 
+                                role="tab" 
+                                data-bs-toggle="pill"
+                                id='HSC-2010---2012-tab'
+                                data-bs-target='#pills-HSC-2010---2012' 
+                                aria-controls='HSC-2010---2012'
+                            >
+                                HSC
+                            </div>
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item px-1 bg-transparent" role="presentation">
+                            <div 
+                                class="nav-link bg-transparent" 
+                                aria-selected="true" 
+                                role="tab" 
+                                data-bs-toggle="pill"
+                                id='SSC-2004---2010-tab'
+                                data-bs-target='#pills-SSC-2004---2010' 
+                                aria-controls='SSC-2004---2010'
+                            >
+                                SSC
+                            </div>
+                        </li>
+                        
+                        
+                    </ul>
+                    <div class="tab-content pb-5 pt-2 bg-transparent primary-font" id="pills-tabContent">
+                        
+                        
+                        <div 
+                            class="tab-pane fade show active bg-transparent" 
+                            role="tabpanel"
+                            id='pills-BSc-Jun-2012---Apr-2015'
+                            aria-labelledby='pills-BSc-Jun-2012---Apr-2015-tab'
+                        >
+                        <div>
+                            <a href="https://mu.ac.in/" target="_blank">Mumbai University</a>
+                            
+                            <div class="pb-1">
+                                <small>Jun 2012 - Apr 2015</small>
+                            </div>
+                        </div>
+
+                            <p>Obtained a Bachelor&rsquo;s degree in Computer Science where I grasped CS Fundamentals and developed an interest for software development.</p>
+<br>
+<h6 id="extracurricular-activities">Extracurricular Activities</h6>
+<ul>
+<li>Secured 2nd place in C Debugging Contest held in college</li>
+<li>Among Top 60 in I-know-vention Quiz Contest (2013) organized by SEED Infotech</li>
+<li>Volunteered in organising college fest - Vibes</li>
+</ul>
+                        </div>
+                        
+                        
+                        
+                        <div 
+                            class="tab-pane fade bg-transparent" 
+                            role="tabpanel"
+                            id='pills-HSC-2010---2012'
+                            aria-labelledby='pills-HSC-2010---2012-tab'
+                        >
+                            <div>
+                                <a href="https://mahahsscboard.in/" target="_blank">Maharashtra State Board</a>
+                                
+                                <div class="pb-1">
+                                    <small>2010 - 2012</small>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                Pursued the Science stream and opted for Computer Science as elective subject.
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div 
+                            class="tab-pane fade bg-transparent" 
+                            role="tabpanel"
+                            id='pills-SSC-2004---2010'
+                            aria-labelledby='pills-SSC-2004---2010-tab'
+                        >
+                            <div>
+                                <a href="https://mahahsscboard.in/" target="_blank">Maharashtra State Board</a>
+                                
+                                <div class="pb-1">
+                                    <small>2004 - 2010</small>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                Completed schooling from St. John the Evangelist High School and secured distinction in 10th grade.
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="featured" class="py-5">
+    <div class="container">
+        <h3 class="text-center">Featured</h3>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8 col-lg-8 py-5">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/KySt9FPGD8k?rel=0" style="border-radius:20px" allow="accelerometer; autoplay; clipboard-write; 
+                     encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="projects" class="py-5">
+    <div class="container">
+        <h3 class="text-center">Projects</h3>
+        <div class="row justify-content-center px-3 px-md-5">
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card my-3 h-100" title="SuperNatives">
+                    <div class="card-head">
+                        <img class="card-img-top" src="/images/projects/supernatives_banner.webp" alt="SuperNatives">
+                    </div>
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Android</span>
+                            
+                            <span class="badge badge-secondary">Java</span>
+                            
+                            <span class="badge badge-secondary">MVP</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">SuperNatives</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            Sample app that showcases the use of MVP architecture to build maintainable &amp; scalable Android apps. Displays a list of superheroes with additional details for each hero.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/cyrilpillai/SuperNatives" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://github.com/cyrilpillai/SuperNatives" target="_blank">
+                                SuperNatives
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card my-3 h-100" title="PDFree">
+                    <div class="card-head">
+                        <img class="card-img-top" src="/images/projects/pdfree_banner.webp" alt="PDFree">
+                    </div>
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Flask</span>
+                            
+                            <span class="badge badge-secondary">Python</span>
+                            
+                            <span class="badge badge-secondary">HTML</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">PDFree</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            A simple web application built with Flask that allows users to upload password-protected PDF files and remove their passwords. It provides a user-friendly interface for securely handling sensitive documents without the need for additional software installations.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/cyrilpillai/pdfree" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://pdfree.cyrilpillai.com/" target="_blank">
+                                PDFree
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card my-3 h-100" title="Quotify">
+                    <div class="card-head">
+                        <img class="card-img-top" src="/images/projects/quotify_banner.webp" alt="Quotify">
+                    </div>
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Flutter</span>
+                            
+                            <span class="badge badge-secondary">Dart</span>
+                            
+                            <span class="badge badge-secondary">ExpressJS</span>
+                            
+                            <span class="badge badge-secondary">DynamoDB</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">Quotify</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            A cross platform app to display memorable quotes. Frontend built in Flutter and capable of publishing Android APK, iOS IPA &amp; a web app. Backend powered by ExpressJS &amp; DynamoDB.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/cyrilpillai/quotes-client" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://quotify.cyrilpillai.com/" target="_blank">
+                                Quotify
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card my-3 h-100" title="Ringer">
+                    <div class="card-head">
+                        <img class="card-img-top" src="/images/projects/ringer_banner.webp" alt="Ringer">
+                    </div>
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Android</span>
+                            
+                            <span class="badge badge-secondary">Kotlin</span>
+                            
+                            <span class="badge badge-secondary">Jetpack Glance</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">Ringer</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            Ringer provides an easy to use Android Widget to control device&#39;s ringer mode and adjust volume. It also has a single screen to control ringing settings. The widget is built using Jetpack Glance.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/cyrilpillai/Ringer" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://github.com/cyrilpillai/Ringer" target="_blank">
+                                Ringer
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card my-3 h-100" title="Pickle Rick">
+                    <div class="card-head">
+                        <img class="card-img-top" src="/images/projects/pickle_rick_banner.webp" alt="Pickle Rick">
+                    </div>
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Flutter</span>
+                            
+                            <span class="badge badge-secondary">Dart</span>
+                            
+                            <span class="badge badge-secondary">BloC</span>
+                            
+                            <span class="badge badge-secondary">GetIt</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">Pickle Rick</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            A sample app that shows data related to the famous adult animated science-fiction sitcom — Rick &amp; Morty. It is built in Flutter and showcases Clean Architecture, BloC, GetIt, Injectable, Dio, etc.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/cyrilpillai/pickle-rick" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://github.com/cyrilpillai/pickle-rick" target="_blank">
+                                Pickle Rick
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card my-3 h-100" title="Android Job Helper">
+                    <div class="card-head">
+                        <img class="card-img-top" src="/images/projects/android_job_banner.webp" alt="Android Job Helper">
+                    </div>
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Android</span>
+                            
+                            <span class="badge badge-secondary">Background Jobs</span>
+                            
+                            <span class="badge badge-secondary">Annotation Processor</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">Android Job Helper</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            An annotation processor to generate redundant code while working with evernote&#39;s android-job library making it easier to write background jobs in Android.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/cyrilpillai/Android-Job-Helper" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://github.com/cyrilpillai/Android-Job-Helper" target="_blank">
+                                Android Job Helper
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-5">
+    <div class="container">
+        <h3 class="text-center">Get in Touch</h3>
+        <div class="px-0 px-md-5 px-lg-5">
+            <div class="row justify-content-center px-md-5">
+                <div class="col-md-8 py-3">
+                    <div class="text-center">
+                        My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+                    </div>
+                    
+                    <div class="text-center pt-3">
+                        <a href="mailto:me@cyrilpillai.com" class="btn">
+                            Mail me
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact-form-status"></div>
+</section>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+  <symbol id="info-fill" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  </symbol>
+  <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+</svg>
+
+  </div><footer>
+    
+ 
+ 
+<div class="container py-3" id="recent-posts">
+    
+    
+    <div class="h3 text-center text-secondary py-3">
+        Recent Posts
+    </div>
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/itr_cheatsheet/">
+                        <img src="/images/blogs/itr_cheatsheet/cover.webp" class="card-img-top" alt="ITR Filing Cheatsheet">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/itr_cheatsheet/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="ITR Filing Cheatsheet">ITR Filing Cheatsheet</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>I started filing my own taxes a few years ago by reading up online/watching YouTube videos.</p>
+<p>Coming from a non finance background, I spent a lot of time reading up to understand the different sections, deductions, etc. when I first filed my own taxes. I learnt a lot in the process and was exhilarated …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jan 11, 2023</span>
+                    <a href="/blogs/itr_cheatsheet/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_tips/">
+                        <img src="/images/blogs/mobile_app_tips/cover.webp" class="card-img-top" alt="Six Tips to Build Great Mobile Apps">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_tips/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Six Tips to Build Great Mobile Apps">Six Tips to Build Great …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>This post is a follow up to <a
+
+	
+
+	
+
+	>
+	
+	<span>
+		Are You Building Your App Right?
+	</span>
+
+</a> If you haven’t read that one, I highly recommend going through it first:</p>
+<p>Now that you’re all caught up, let’s dive back into what you need to build a great app.</p>
+<h2 id="1-graphics">1. Graphics</h2>
+<blockquote>
+<h6 id="a-picture-is-worth-a-thousand-words">A picture is worth a thousand words</h6>
+</blockquote>
+<p>Most of the apps …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Aug 22, 2019</span>
+                    <a href="/blogs/mobile_app_tips/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_essentials/">
+                        <img src="/images/blogs/mobile_app_essentials/cover.webp" class="card-img-top" alt="Are You Building Your App Right?">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_essentials/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Are You Building Your App Right?">Are You Building Your App …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.</p>
+<p>This series post …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jul 25, 2019</span>
+                    <a href="/blogs/mobile_app_essentials/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="text-center pt-2">
+    
+    <span class="pt-3">
+        <a href="https://www.linkedin.com/in/cyrilpillai" aria-label="linkedin" target="_blank">
+            <i class="fa-brands fa-linkedin" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+        <a href="https://github.com/cyrilpillai" aria-label="github" target="_blank">
+            <i class="fa-brands fa-square-github" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://twitter.com/cyril_pillai" aria-label="twitter" target="_blank">
+        <i class="fa-brands fa-square-x-twitter" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.instagram.com/cyril.pillai" aria-label="instagram" target="_blank">
+        <i class="fa-brands fa-square-instagram" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.facebook.com/cyril.pillai94" aria-label="facebook" target="_blank">
+        <i class="fa-brands fa-square-facebook" font-size="40px"></i>
+    </a>
+    </span>
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            &copy; 2025  Cyril Pillai. All rights reserved.
+            <div class="text-secondary">
+                Theme by
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

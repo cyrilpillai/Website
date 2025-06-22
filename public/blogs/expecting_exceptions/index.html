@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/images/logo.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9662PFE3TZ"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9662PFE3TZ');
+        }
+      </script>
+<meta property="og:url" content="https://cyrilpillai.com/blogs/expecting_exceptions/">
+  <meta property="og:site_name" content="Cyril Pillai">
+  <meta property="og:title" content="Expecting the Exceptions">
+  <meta property="og:description" content="Error Format Most of the APIs have a defined format in which they return errors. This contract helps the API consumers in handling the errors.
+At m.Paani, we too have a contract for raising errors. The API sends a JSON list containing N error objects. A typical error response would look something like
+[ { &#34;field&#34;: &#34;non_field_errors&#34;, &#34;code&#34;: 4005, &#34;client_message&#34;: &#34;Please try logging in again.&#34;, &#34;server_message&#34;: &#34;Token Expired at 2018-07-11T10:30:00Z&#34; } ] field: Contains name of the field only if it’s a field error else returns non_field_errors">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2018-07-25T23:29:21+05:30">
+    <meta property="article:modified_time" content="2018-07-25T23:29:21+05:30">
+    <meta property="article:tag" content="Exceptions">
+    <meta property="article:tag" content="Android">
+    <meta property="article:tag" content="Kotlin">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Expecting the Exceptions">
+  <meta name="twitter:description" content="Error Format Most of the APIs have a defined format in which they return errors. This contract helps the API consumers in handling the errors.
+At m.Paani, we too have a contract for raising errors. The API sends a JSON list containing N error objects. A typical error response would look something like
+[ { &#34;field&#34;: &#34;non_field_errors&#34;, &#34;code&#34;: 4005, &#34;client_message&#34;: &#34;Please try logging in again.&#34;, &#34;server_message&#34;: &#34;Token Expired at 2018-07-11T10:30:00Z&#34; } ] field: Contains name of the field only if it’s a field error else returns non_field_errors">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+
+
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        width: .5em;
+        height: .5em;
+        background-color: var(--background-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px var(--background-color);
+        border-radius: 1rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: var(--secondary-color);
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+  <title>
+Expecting the Exceptions | Cyril Pillai
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  false ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;        
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                Cyril Pillai
+                
+            </a>
+
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Bytes of Wisdom">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Expecting the Exceptions</h1>
+            <div class="text-center">
+              Cyril Pillai 
+              <small>|</small>
+              Jul 25, 2018
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/blogs/expecting_exceptions/cover.webp" alt="Expecting the Exceptions">
+          </div>
+          
+          <article class="page-content  p-2">
+          <h2 id="error-format">Error Format</h2>
+<p>Most of the APIs have a defined format in which they return errors. This contract helps the API consumers in handling the errors.</p>
+<p>At m.Paani, we too have a contract for raising errors. The API sends a JSON list containing N error objects. A typical error response would look something like</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;field&#34;</span>: <span style="color:#e6db74">&#34;non_field_errors&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;code&#34;</span>: <span style="color:#ae81ff">4005</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;client_message&#34;</span>: <span style="color:#e6db74">&#34;Please try logging in again.&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;server_message&#34;</span>: <span style="color:#e6db74">&#34;Token Expired at 2018-07-11T10:30:00Z&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p><strong>field</strong>: Contains name of the field only if it’s a field error else returns non_field_errors</p>
+<p><strong>code</strong>: Internal Error Codes (as most non trivial systems have a lot of domain specific errors and edge cases). This also provides granularity and makes debugging a bit easier.</p>
+<blockquote>
+<p>Consider this - API returns an HTTP 401 UNAUTHORIZED, it’s impossible to identify the actual cause. This could have been raised because token was invalid or expired or perhaps it wasn’t sent in the first place.</p>
+</blockquote>
+<p><strong>client_message</strong>: A user friendly message that can be directly shown to the user.</p>
+<p><strong>server_message</strong>: A message containing more technical information that can help in debugging the issue.</p>
+<hr>
+<h2 id="handling-the-error">Handling the error</h2>
+<p>Now that we know the format of error we’re dealing with, let’s dive into handling it at the Android side.</p>
+<p>Here’s the data class which would be used to deserialize the error body.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NetworkError</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@SerializedName</span>(<span style="color:#e6db74">&#34;code&#34;</span>) <span style="color:#66d9ef">val</span> code: Int,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@SerializedName</span>(<span style="color:#e6db74">&#34;field&#34;</span>) <span style="color:#66d9ef">val</span> field: String,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@SerializedName</span>(<span style="color:#e6db74">&#34;server_message&#34;</span>) <span style="color:#66d9ef">val</span> serverMessage: String,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@SerializedName</span>(<span style="color:#e6db74">&#34;client_message&#34;</span>) <span style="color:#66d9ef">val</span> clientMessage: String
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Here’s an example exception which would be raised once a corresponding JSON error is encountered.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthTokenException</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> reason: String = <span style="color:#e6db74">&#34;Authentication Token is invalid&#34;</span>
+</span></span><span style="display:flex;"><span>): Throwable(message = reason)
+</span></span></code></pre></div><p>This is how you would be handling errors in your API calls.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>webService.getUserDetails()
+</span></span><span style="display:flex;"><span>.handleErrors(gson) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//Handle API-specific errors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> list = mutableListOf&lt;Throwable&gt;()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">it</span>.forEach {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">when</span> (<span style="color:#66d9ef">it</span>.code) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">2081</span> <span style="color:#f92672">-&gt;</span> list.add(UserDeactivatedException(<span style="color:#66d9ef">it</span>.clientMessage))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span><span style="color:#a6e22e">@handleErrors</span> list
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.subscribe({
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//You can finally go to bed now
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Log</span>.d(TAG, <span style="color:#e6db74">&#34;success: </span><span style="color:#e6db74">$it</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}, {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//Get some more coffee and handle this error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">it</span>.printStackTrace()
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p align="center">
+    <img src="/images/blogs/expecting_exceptions/confusion.webp">
+</p>
+<h2 id="where-magic">Where magic</h2>
+<p>Let’s get to the interesting part, shall we?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Extension function for [Single] that adds error handling logic to handle Network Errors in the stream
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * This extension function is sufficient for all Network Requests as all of the Retrofit APIs should
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * return a [Single]. But it can be extended for Observable/Flowable etc., if need be.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Loops through the whole list and adds all of the recognizable errors as exceptions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * and at the same time makes sure the unknown/API-specific errors are passed on to the
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * [customErrors] lambda function for processing.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * The lambda function receives only the unhandled errors and not the whole list. This is a
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * small optimization that makes sure [customErrors] does not have to loop through already handled
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * errors.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param gson [Gson] instance to pass it to [parseError]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param customErrors Lambda function which receives a list of [NetworkError] and is expected to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * handle the API-specific errors and return a list of [Throwable]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return [Single] that invokes [Single.error] with a [CompositeException] containing exceptions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * based on all of the errors returned by the API (Returns the original exception if it&#39;s not able
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * to parse it).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">fun</span> &lt;<span style="color:#a6e22e">T</span>&gt; <span style="color:#a6e22e">Single</span>&lt;T&gt;.handleErrors(gson: Gson, <span style="color:#66d9ef">crossinline</span> customErrors: (List&lt;NetworkError&gt;) <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>List&lt;Throwable&gt; = { listOf() }): Single&lt;T&gt; = <span style="color:#66d9ef">this</span>.onErrorResumeNext { e <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> errors: MutableList&lt;Throwable&gt; = mutableListOf()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (e <span style="color:#66d9ef">is</span> HttpException) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">when</span> (e.code()) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">400.</span>.<span style="color:#ae81ff">499</span> <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">val</span> errorList = e.response().errorBody().parseError(gson = gson)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">val</span> unhandledErrorList: MutableList&lt;NetworkError&gt; = mutableListOf()
+</span></span><span style="display:flex;"><span>                errorList.forEach {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">when</span> (<span style="color:#66d9ef">it</span>.code) {
+</span></span><span style="display:flex;"><span>                        <span style="color:#ae81ff">4001</span> <span style="color:#f92672">-&gt;</span> errors.add(AuthTokenException(<span style="color:#66d9ef">it</span>.clientMessage))
+</span></span><span style="display:flex;"><span>                        <span style="color:#ae81ff">4004</span> <span style="color:#f92672">-&gt;</span> errors.add(NotFoundException(<span style="color:#66d9ef">it</span>.clientMessage))
+</span></span><span style="display:flex;"><span>                        <span style="color:#ae81ff">2001</span>, <span style="color:#ae81ff">2031</span> <span style="color:#f92672">-&gt;</span> errors.add(EmptyFieldException(<span style="color:#66d9ef">it</span>.<span style="color:#66d9ef">field</span>))
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">else</span> <span style="color:#f92672">-&gt;</span> unhandledErrorList.add(<span style="color:#66d9ef">it</span>)
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                errors.addAll(customErrors(unhandledErrorList))
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (errors.isEmpty()) errors.add(e)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span><span style="color:#a6e22e">@onErrorResumeNext</span> <span style="color:#a6e22e">Single</span>.error(CompositeException(errors))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Extension function for [ResponseBody] that converts the [ResponseBody.string] into
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * [List] of [NetworkError]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * *Note: Returns empty list if gson fails to parse the [ResponseBody.string]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param gson [Gson] instance to deserialize error response
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return [List] of [NetworkError]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">ResponseBody</span><span style="color:#f92672">?.</span>parseError(gson: Gson): List&lt;NetworkError&gt; = <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    gson.fromJson&lt;List&lt;NetworkError&gt;&gt;(<span style="color:#66d9ef">this</span><span style="color:#f92672">?.</span>string(), <span style="color:#66d9ef">object</span> <span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span>            TypeToken&lt;List&lt;NetworkError&gt;&gt;() {}.type)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (e: Exception) {
+</span></span><span style="display:flex;"><span>    listOf()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>handleErrors()</strong> is an <a
+
+	
+	
+		href = "https://kotlinlang.org/docs/extensions.html"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		extension function
+	</span>
+
+</a> written in Kotlin that can be used on any <strong>Single</strong>.</p>
+<p>It has a very straight forward responsibility</p>
+<blockquote>
+<p>To transform the error response into a list of NetworkError and map every item to the corresponding Exception and return a <a
+
+	
+	
+		href = "http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/exceptions/CompositeException.html"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		CompositeException
+	</span>
+
+</a>.</p>
+</blockquote>
+<p>RxJava’s <strong>onErrorResumeNext</strong> is the backbone of this extension function.</p>
+<p>If you’ve never heard of this operator before, I would highly recommend reading a bit about it <a
+
+	
+	
+		href = "http://reactivex.io/RxJava/javadoc/rx/Observable.html#onErrorResumeNext-rx.Observable-"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		here
+	</span>
+
+</a>, but just to summarize what it does</p>
+<blockquote>
+<p>It replaces the current stream with a new Observable as soon as an error is encountered.</p>
+</blockquote>
+<p>The function is pretty self explanatory but a higher level breakdown would be</p>
+<ul>
+<li>Hijack the thrown exception.</li>
+<li>Continue only if it’s an <strong>HttpException</strong> else just return a new <strong>Single.error()</strong> with the encountered exception to make sure the subscriber’s <strong>onError</strong> is called.</li>
+<li>Now if it is an <strong>HttpException</strong>, then convert the response body into a <strong>List&lt;NetworkError&gt;</strong> using another extension function called <strong>parseError()</strong>.</li>
+<li>Iterate over the list of errors and add their corresponding exceptions to the <strong>errorList</strong>. This basically means handling all of the BASE errors like Not Found Exceptions, Auth Exceptions, Empty Field Exceptions, etc.</li>
+<li>Add all of the unknown errors into the <strong>unhandledErrorList</strong> and pass it to the lambda function received. Most of the APIs would have unique errors which cannot/should not be handled by this function. It should rather be delegated to the caller.</li>
+<li>Based on the function contract, the lambda function would then process the unhandledErrorList and return a <strong>List&lt;Throwable&gt;</strong> containing all of the API specific exceptions.</li>
+<li>Add the new exceptions to the <strong>errorList</strong> and return a new <strong>Single.error()</strong> with the <strong>CompositeException</strong> containing all of the modified exceptions.</li>
+<li>The subscriber can then iterate over the <strong><code>CompositeException</code></strong> and act accordingly.</li>
+</ul>
+<p>What do you think about this approach. Feel free to share your thoughts.</p>
+<hr>
+<p><em>Cross posted in <a
+
+	
+	
+		href = "https://medium.com/mpaani/expecting-the-exceptions-b6e6820160fc"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		mPaani Engineering
+	</span>
+
+</a></em></p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#error-format">Error Format</a></li>
+    <li><a href="#handling-the-error">Handling the error</a></li>
+    <li><a href="#where-magic">Where magic</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/exceptions" target="_blank">Exceptions</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/android" target="_blank">Android</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/kotlin" target="_blank">Kotlin</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=Expecting%20the%20Exceptions&url=https%3a%2f%2fcyrilpillai.com%2fblogs%2fexpecting_exceptions%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Expecting%20the%20Exceptions: https%3a%2f%2fcyrilpillai.com%2fblogs%2fexpecting_exceptions%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Expecting%20the%20Exceptions&amp;body=Check%20out%20this%20site https%3a%2f%2fcyrilpillai.com%2fblogs%2fexpecting_exceptions%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "cyrilpillai" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+ 
+<div class="container py-3" id="recent-posts">
+    
+    
+    <div class="h3 text-center text-secondary py-3">
+        Recent Posts
+    </div>
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/itr_cheatsheet/">
+                        <img src="/images/blogs/itr_cheatsheet/cover.webp" class="card-img-top" alt="ITR Filing Cheatsheet">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/itr_cheatsheet/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="ITR Filing Cheatsheet">ITR Filing Cheatsheet</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>I started filing my own taxes a few years ago by reading up online/watching YouTube videos.</p>
+<p>Coming from a non finance background, I spent a lot of time reading up to understand the different sections, deductions, etc. when I first filed my own taxes. I learnt a lot in the process and was exhilarated …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jan 11, 2023</span>
+                    <a href="/blogs/itr_cheatsheet/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_tips/">
+                        <img src="/images/blogs/mobile_app_tips/cover.webp" class="card-img-top" alt="Six Tips to Build Great Mobile Apps">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_tips/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Six Tips to Build Great Mobile Apps">Six Tips to Build Great …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>This post is a follow up to <a
+
+	
+
+	
+
+	>
+	
+	<span>
+		Are You Building Your App Right?
+	</span>
+
+</a> If you haven’t read that one, I highly recommend going through it first:</p>
+<p>Now that you’re all caught up, let’s dive back into what you need to build a great app.</p>
+<h2 id="1-graphics">1. Graphics</h2>
+<blockquote>
+<h6 id="a-picture-is-worth-a-thousand-words">A picture is worth a thousand words</h6>
+</blockquote>
+<p>Most of the apps …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Aug 22, 2019</span>
+                    <a href="/blogs/mobile_app_tips/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_essentials/">
+                        <img src="/images/blogs/mobile_app_essentials/cover.webp" class="card-img-top" alt="Are You Building Your App Right?">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_essentials/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Are You Building Your App Right?">Are You Building Your App …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.</p>
+<p>This series post …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jul 25, 2019</span>
+                    <a href="/blogs/mobile_app_essentials/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="text-center pt-2">
+    
+    <span class="pt-3">
+        <a href="https://www.linkedin.com/in/cyrilpillai" aria-label="linkedin" target="_blank">
+            <i class="fa-brands fa-linkedin" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+        <a href="https://github.com/cyrilpillai" aria-label="github" target="_blank">
+            <i class="fa-brands fa-square-github" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://twitter.com/cyril_pillai" aria-label="twitter" target="_blank">
+        <i class="fa-brands fa-square-x-twitter" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.instagram.com/cyril.pillai" aria-label="instagram" target="_blank">
+        <i class="fa-brands fa-square-instagram" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.facebook.com/cyril.pillai94" aria-label="facebook" target="_blank">
+        <i class="fa-brands fa-square-facebook" font-size="40px"></i>
+    </a>
+    </span>
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            &copy; 2025  Cyril Pillai. All rights reserved.
+            <div class="text-secondary">
+                Theme by
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

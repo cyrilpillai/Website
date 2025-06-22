@@ -1,0 +1,87 @@
+{{ if .Site.Params.education.enable | default false }}
+<section id="education" class="py-5">
+    <div class="container">
+        <h3 class="text-center">{{ .Site.Params.education.title | default "Education" }}</h3>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8 col-lg-8 py-5">
+                <div class="education-container px-3 pt-2">
+                    <ul class="nav nav-pills mb-3 bg-transparent primary-font" id="pills-tab" role="tablist">
+                        {{ range $index, $element := .Site.Params.education.items }}
+                        {{ if (eq $index 0) }}
+                        <li class="nav-item px-1 bg-transparent" role="presentation">
+                            <div 
+                                class="nav-link active bg-transparent" 
+                                aria-selected="true" 
+                                role="tab" 
+                                data-bs-toggle="pill"
+                                id='{{ replace .title " " "-" }}-{{ replace .date " " "-" }}-tab'
+                                data-bs-target='#pills-{{ replace .title " " "-" }}-{{ replace .date " " "-" }}'
+                                aria-controls='{{ replace .title " " "-" }}-{{ replace .date " " "-" }}' 
+                            >
+                                {{ .title }}
+                            </div>
+                        </li>
+                        {{ else }}
+                        <li class="nav-item px-1 bg-transparent" role="presentation">
+                            <div 
+                                class="nav-link bg-transparent" 
+                                aria-selected="true" 
+                                role="tab" 
+                                data-bs-toggle="pill"
+                                id='{{ replace .title " " "-" }}-{{ replace .date " " "-" }}-tab'
+                                data-bs-target='#pills-{{ replace .title " " "-" }}-{{ replace .date " " "-" }}' 
+                                aria-controls='{{ replace .title " " "-" }}-{{ replace .date " " "-" }}'
+                            >
+                                {{ .title }}
+                            </div>
+                        </li>
+                        {{ end }}
+                        {{ end }}
+                    </ul>
+                    <div class="tab-content pb-5 pt-2 bg-transparent primary-font" id="pills-tabContent">
+                        {{ range $index, $element := .Site.Params.education.items }}
+                        {{ if (eq $index 0) }}
+                        <div 
+                            class="tab-pane fade show active bg-transparent" 
+                            role="tabpanel"
+                            id='pills-{{ replace .title " " "-" }}-{{ replace .date " " "-" }}'
+                            aria-labelledby='pills-{{ replace .title " " "-" }}-{{ replace .date " " "-" }}-tab'
+                        >
+                        <div>
+                            <a href="{{ .school.url }}" target="_blank">{{ .school.name }}</a>
+                            
+                            <div class="pb-1">
+                                <small>{{ .date }}</small>
+                            </div>
+                        </div>
+
+                            {{ .content | markdownify}}
+                        </div>
+                        {{ else }}
+                        <div 
+                            class="tab-pane fade bg-transparent" 
+                            role="tabpanel"
+                            id='pills-{{ replace .title " " "-" }}-{{ replace .date " " "-" }}'
+                            aria-labelledby='pills-{{ replace .title " " "-" }}-{{ replace .date " " "-" }}-tab'
+                        >
+                            <div>
+                                <a href="{{ .school.url }}" target="_blank">{{ .school.name }}</a>
+                                
+                                <div class="pb-1">
+                                    <small>{{ .date }}</small>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                {{ .content | markdownify}}
+                            </div>
+                        </div>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

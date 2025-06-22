@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/images/logo.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9662PFE3TZ"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9662PFE3TZ');
+        }
+      </script>
+<meta property="og:url" content="https://cyrilpillai.com/blogs/mobile_app_essentials/">
+  <meta property="og:site_name" content="Cyril Pillai">
+  <meta property="og:title" content="Are You Building Your App Right?">
+  <meta property="og:description" content="If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.
+This series post pens down some essentials you should consider integrating into every app you build. Here we go:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2019-07-25T23:29:21+05:30">
+    <meta property="article:modified_time" content="2019-07-25T23:29:21+05:30">
+    <meta property="article:tag" content="Mobile Apps">
+    <meta property="article:tag" content="Android">
+    <meta property="article:tag" content="Kotlin">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Are You Building Your App Right?">
+  <meta name="twitter:description" content="If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.
+This series post pens down some essentials you should consider integrating into every app you build. Here we go:">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+
+
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        width: .5em;
+        height: .5em;
+        background-color: var(--background-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px var(--background-color);
+        border-radius: 1rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: var(--secondary-color);
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+  <title>
+Are You Building Your App Right? | Cyril Pillai
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  false ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;        
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                Cyril Pillai
+                
+            </a>
+
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Bytes of Wisdom">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Are You Building Your App Right?</h1>
+            <div class="text-center">
+              Cyril Pillai 
+              <small>|</small>
+              Jul 25, 2019
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/blogs/mobile_app_essentials/cover.webp" alt="Are You Building Your App Right?">
+          </div>
+          
+          <article class="page-content  p-2">
+          <p>If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.</p>
+<p>This series post pens down some essentials you should consider integrating into every app you build. Here we go:</p>
+<h2 id="1-crash-reporting">1. Crash Reporting</h2>
+<p align="center">
+    <img src="/images/blogs/mobile_app_essentials/inevitable.webp">
+</p>
+<p>Anyone who develops software will confirm that bugs are indeed, inevitable.</p>
+<blockquote>
+<h6 id="a-bug-free-software-is-a-myth"><em><strong>A bug free software is a myth.</strong></em></h6>
+</blockquote>
+<p>As developers, we are in a never ending battle to eliminate bugs from the system. We may not realise it at the time, but the code we write and the decisions we make can have serious consequences (like <a
+
+	
+	
+		href = "https://en.wikipedia.org/wiki/Year_2000_problem"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Y2K
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://blog.cleancoder.com/uncle-bob/2019/05/18/737-Max-8.html"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Boeing 737 Max 8
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Metric Mishap
+	</span>
+
+</a> in NASA’s Mars Orbiter, etc).</p>
+<p>Thus, we need to make sure that we have a robust infrastructure for finding the flaws in the software we build. At Gojek, we use <a
+
+	
+	
+		href = "https://firebase.google.com/products/crashlytics/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Firebase Crashlytics
+	</span>
+
+</a> which gives an extensive crash report with complete stack trace, number of crashes, device info, geographic info, etc.</p>
+<p><strong>Useful Tools: <a
+
+	
+	
+		href = "https://firebase.google.com/products/crashlytics/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Firebase Crashlytics
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://www.instabug.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Instabug
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://sentry.io/welcome/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Sentry
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://www.bugsnag.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		BugSnag
+	</span>
+
+</a>, etc.</strong></p>
+<h2 id="2-analytics">2. Analytics</h2>
+<p>We build software to cater to users’ needs. Hence, the evolution of the product depends on the user. We may need to track a user’s behavioural data — screen time, button clicks, navigation patterns, etc. — to understand the user better. This data can then be used to tweak the product by enhancing the UI/UX, resulting in a richer experience.</p>
+<p>Apart from user interaction data, logging non-fatal errors and API failures can be extremely helpful in enhancing the app experience too.</p>
+<blockquote>
+<h6 id="logging-events-is-just-a-piece-of-the-puzzle-though">Logging events is just a piece of the puzzle though.</h6>
+</blockquote>
+<p>Monitoring the events and using the data to improve user experience is more important. For example, monitoring the number of users on a particular version of the app can help decide whether a specific feature can be deprecated or not.</p>
+<p>At Gojek, we use <a
+
+	
+	
+		href = "https://clevertap.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		CleverTap
+	</span>
+
+</a> &amp; <a
+
+	
+	
+		href = "https://www.appsflyer.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		AppsFlyer
+	</span>
+
+</a> to capture user events. We use many tools for analysis as well.</p>
+<p><strong>Useful Tools: <a
+
+	
+	
+		href = "https://firebase.google.com/docs/analytics"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Google Analytics
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://clevertap.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		CleverTap
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://www.appsflyer.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		AppsFlyer
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://mixpanel.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		MixPanel
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://amplitude.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Amplitude
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://segment.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Segment
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://www.metabase.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Metabase
+	</span>
+
+</a>, etc.</strong></p>
+<h2 id="3-feature-toggle">3. Feature Toggle</h2>
+<p><em><strong>Picture this</strong></em></p>
+<pre tabindex="0"><code>→ You introduce a new feature in your app.
+→ Your app’s crash free sessions reduce drastically after a few
+days of releasing it to App Store.
+→ You debug and figure out that the new feature has an issue.
+→ Now, you have to fix the issue as quickly as possible and release
+another update to App Store — which will take its own sweet time to
+review it (Problems of being a mobile dev 😞).
+→ In the time it took for you to fix the issue and for the App Store
+to release the new update, the damage was already done.
+</code></pre><h3 id="a-few-examples-of-the-damage">A few examples of the damage</h3>
+<p>Crash free sessions went down, App Store ratings sunk 📉, App reviews section got filled with complaints, Uninstalls increased, Users started bombarding the customer care unit, Product got defamed on social media, Management folks got upset 💢</p>
+<blockquote>
+<h6 id="what-can-we-do-for-damage-control">What can we do for Damage Control?</h6>
+</blockquote>
+<p>Well, we can avoid all this with <a
+
+	
+	
+		href = "https://en.wikipedia.org/wiki/Feature_toggle"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		feature toggles/feature flags
+	</span>
+
+</a>. At Gojek, we don’t release a new feature without a feature toggle. This ensures we can toggle it off immediately if things go south (<a
+
+	
+	
+		href = "https://en.wikipedia.org/wiki/Murphy%27s_law"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Murphy’s Law
+	</span>
+
+</a> exists for a reason 😑). We’ve been using <a
+
+	
+	
+		href = "https://firebase.google.com/docs/remote-config"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Firebase Remote Config
+	</span>
+
+</a> for implementing feature toggles, which suffices for basic use cases, but we’re moving away from it to an in-house tool called <a
+
+	
+	
+		href = "https://medium.com/gojekengineering/introducing-litmus-gojeks-own-experimentation-platform-3803467b6a53"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Litmus
+	</span>
+
+</a> which is built to cater to our specific needs and gives more granular control over feature rollouts. You can read more about Litmus here:</p>
+<p><strong>More Useful Tools: <a
+
+	
+	
+		href = "https://firebase.google.com/docs/remote-config"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Firebase Remote Config
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://www.split.io/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Split
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://www.cloudbees.com/capabilities/feature-management"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Rollout
+	</span>
+
+</a>, etc.</strong></p>
+<h2 id="4-globalisation">4. Globalisation</h2>
+<p>Like other products, software shouldn’t be built with a small target audience in mind. It should have the ability to scale up and cater to a wide variety of users across the globe.</p>
+<p>Globalisation has two phases: <a
+
+	
+	
+		href = "https://en.wikipedia.org/wiki/Internationalization_and_localization"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		internationalisation &amp; localisation
+	</span>
+
+</a>.</p>
+<blockquote>
+<p>Internationalisation (i18n) refers to the initial setup of the software in a way that it can adapt to various languages and regions. It is a one-time process.</p>
+</blockquote>
+<p>Localisation (l10n) refers to the actual implementation efforts to support a particular language/region.</p>
+<p>As Gojek is available in multiple countries (Indonesia, Singapore, <a
+
+	
+	
+		href = "https://medium.com/gojekengineering/good-morning-vietnam-how-gojek-went-international-c7c302cc8caa"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Vietnam
+	</span>
+
+</a>, and <a
+
+	
+	
+		href = "https://medium.com/gojekengineering/the-final-chapter-how-gojek-went-international-7839ebc48db5"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Thailand
+	</span>
+
+</a>, we need to make sure that all of our users get a familiar and localised experience based on their geographic location and language preferences. Our mobile apps have localised copies and illustrations and our APIs return data based on the user’s locale.</p>
+<p><strong>Useful Tools: <a
+
+	
+	
+		href = "https://www.oneskyapp.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		OneSky
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://lokalise.com/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Lokalise
+	</span>
+
+</a>, etc.</strong></p>
+<h2 id="5-force-update">5. Force Update</h2>
+<p align="center">
+    <img src="/images/blogs/mobile_app_essentials/not_today.webp">
+</p>
+<p>Any non-trivial app will evolve throughout its lifecycle — changing with every iteration. App updates are the most crucial part of this evolution.</p>
+<p>Updates are released for a multitude of reasons:</p>
+<blockquote>
+<h6 id="first-release-new-feature-design-overhaul-bug-fixes-enhancements-its-a-long-list">First release, new feature, design overhaul, bug fixes, enhancements, it’s a long list.</h6>
+</blockquote>
+<p align="center">
+    <img src="/images/blogs/mobile_app_essentials/update.webp">
+</p>
+<p>The problem with App updates is that the user can opt out and continue using the older versions of the app, which means:</p>
+<blockquote>
+<h6 id="no-breaking-changes-ever-backward-compatibility-for-every-version-of-the-app-users-missing-out-on-new-features-hindrance-in-adoption-of-crucial-bug-fixes-its-another-long-list">No breaking changes ever, backward compatibility for every version of the app, users missing out on new features, hindrance in adoption of crucial bug fixes… it’s another long list.</h6>
+</blockquote>
+<p><strong>Force Update</strong> is a mechanism to enforce timely updates by restricting app usage. One important point to keep in mind is to use this sparingly, as it’s blocking the user from using the app, and might increase the churn rate.</p>
+<p>Force Update should be integrated in the app from the get-go. Its implementation is pretty straightforward and there are various ways to do it.</p>
+<p>You could use <a
+
+	
+	
+		href = "https://firebase.google.com/docs/remote-config"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Firebase Remote Config
+	</span>
+
+</a> to get the version identifiers of the latest version and do a comparison with the installed one.</p>
+<p>Another approach would be to make an API call to a Backend service with the current version identifiers and act upon the response from the service.</p>
+<p><strong>Useful Tools: <a
+
+	
+	
+		href = "https://developer.android.com/guide/playcore/in-app-updates"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Google’s In-app Updates
+	</span>
+
+</a>.</strong></p>
+<h2 id="6-design-language">6. Design Language</h2>
+<blockquote>
+<h6 id="looks-arent-everything">Looks aren’t everything.</h6>
+</blockquote>
+<p>This is true in most cases, but not when it comes to mobile apps. In our world, user interface/user experience is everything. You should have a consistent user experience throughout the app to make sure the user gets familiar with the app as quickly as possible. It helps to follow some kind of Design Language while building mobile apps. Having a set of components and similar theming also helps in reusing a lot of code while building the app.</p>
+<p>Gojek has its own Design Language called <a
+
+	
+	
+		href = "https://asphalt.gojek.io/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Asphalt
+	</span>
+
+</a>. If you want to know more about how we ended up building it, check out <a
+
+	
+	
+		href = "https://medium.com/gojekengineering/of-dreams-deadlines-and-a-design-system-6ad7c3d1b17f"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		this
+	</span>
+
+</a> blog. Also, did you notice Gojek has a new design style? Read about it <a
+
+	
+	
+		href = "https://medium.com/gojekengineering/a-new-gojek-4100c27875ff"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		here
+	</span>
+
+</a>.)</p>
+<p><strong>Useful Tools: <a
+
+	
+	
+		href = "https://m3.material.io/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Material Design
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://en.wikipedia.org/wiki/Flat_design"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Flat Design
+	</span>
+
+</a>, <a
+
+	
+	
+		href = "https://asphalt.gojek.io/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Asphalt
+	</span>
+
+</a>, etc.</strong></p>
+<p>That’s all from me for now, folks. But there’s a lot more to talk about on this subject —  keep watching this space for more.</p>
+<hr>
+<p><em>Cross posted on <a
+
+	
+	
+		href = "https://www.gojek.io/blog/are-you-building-your-app-right"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Gojek Engineering
+	</span>
+
+</a></em></p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-crash-reporting">1. Crash Reporting</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#2-analytics">2. Analytics</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#3-feature-toggle">3. Feature Toggle</a>
+      <ul>
+        <li><a href="#a-few-examples-of-the-damage">A few examples of the damage</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-globalisation">4. Globalisation</a></li>
+    <li><a href="#5-force-update">5. Force Update</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#6-design-language">6. Design Language</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/mobile-apps" target="_blank">Mobile Apps</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/android" target="_blank">Android</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/kotlin" target="_blank">Kotlin</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=Are%20You%20Building%20Your%20App%20Right%3f&url=https%3a%2f%2fcyrilpillai.com%2fblogs%2fmobile_app_essentials%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Are%20You%20Building%20Your%20App%20Right%3f: https%3a%2f%2fcyrilpillai.com%2fblogs%2fmobile_app_essentials%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Are%20You%20Building%20Your%20App%20Right%3f&amp;body=Check%20out%20this%20site https%3a%2f%2fcyrilpillai.com%2fblogs%2fmobile_app_essentials%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "cyrilpillai" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+ 
+<div class="container py-3" id="recent-posts">
+    
+    
+    <div class="h3 text-center text-secondary py-3">
+        Recent Posts
+    </div>
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/itr_cheatsheet/">
+                        <img src="/images/blogs/itr_cheatsheet/cover.webp" class="card-img-top" alt="ITR Filing Cheatsheet">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/itr_cheatsheet/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="ITR Filing Cheatsheet">ITR Filing Cheatsheet</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>I started filing my own taxes a few years ago by reading up online/watching YouTube videos.</p>
+<p>Coming from a non finance background, I spent a lot of time reading up to understand the different sections, deductions, etc. when I first filed my own taxes. I learnt a lot in the process and was exhilarated …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jan 11, 2023</span>
+                    <a href="/blogs/itr_cheatsheet/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_tips/">
+                        <img src="/images/blogs/mobile_app_tips/cover.webp" class="card-img-top" alt="Six Tips to Build Great Mobile Apps">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_tips/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Six Tips to Build Great Mobile Apps">Six Tips to Build Great …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>This post is a follow up to <a
+
+	
+
+	
+
+	>
+	
+	<span>
+		Are You Building Your App Right?
+	</span>
+
+</a> If you haven’t read that one, I highly recommend going through it first:</p>
+<p>Now that you’re all caught up, let’s dive back into what you need to build a great app.</p>
+<h2 id="1-graphics">1. Graphics</h2>
+<blockquote>
+<h6 id="a-picture-is-worth-a-thousand-words">A picture is worth a thousand words</h6>
+</blockquote>
+<p>Most of the apps …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Aug 22, 2019</span>
+                    <a href="/blogs/mobile_app_tips/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_essentials/">
+                        <img src="/images/blogs/mobile_app_essentials/cover.webp" class="card-img-top" alt="Are You Building Your App Right?">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_essentials/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Are You Building Your App Right?">Are You Building Your App …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.</p>
+<p>This series post …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jul 25, 2019</span>
+                    <a href="/blogs/mobile_app_essentials/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="text-center pt-2">
+    
+    <span class="pt-3">
+        <a href="https://www.linkedin.com/in/cyrilpillai" aria-label="linkedin" target="_blank">
+            <i class="fa-brands fa-linkedin" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+        <a href="https://github.com/cyrilpillai" aria-label="github" target="_blank">
+            <i class="fa-brands fa-square-github" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://twitter.com/cyril_pillai" aria-label="twitter" target="_blank">
+        <i class="fa-brands fa-square-x-twitter" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.instagram.com/cyril.pillai" aria-label="instagram" target="_blank">
+        <i class="fa-brands fa-square-instagram" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.facebook.com/cyril.pillai94" aria-label="facebook" target="_blank">
+        <i class="fa-brands fa-square-facebook" font-size="40px"></i>
+    </a>
+    </span>
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            &copy; 2025  Cyril Pillai. All rights reserved.
+            <div class="text-secondary">
+                Theme by
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

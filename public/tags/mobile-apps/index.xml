@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mobile Apps on Cyril Pillai</title>
+    <link>https://cyrilpillai.com/tags/mobile-apps/</link>
+    <description>Recent content in Mobile Apps on Cyril Pillai</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Aug 2019 23:29:21 +0530</lastBuildDate>
+    <atom:link href="https://cyrilpillai.com/tags/mobile-apps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Six Tips to Build Great Mobile Apps</title>
+      <link>https://cyrilpillai.com/blogs/mobile_app_tips/</link>
+      <pubDate>Thu, 22 Aug 2019 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/mobile_app_tips/</guid>
+      <description>&lt;p&gt;This post is a follow up to &lt;a&#xA;&#xA;&#x9;&#xA;&#xA;&#x9;&#xA;&#xA;&#x9;&gt;&#xA;&#x9;&#xA;&#x9;&lt;span&gt;&#xA;&#x9;&#x9;Are You Building Your App Right?&#xA;&#x9;&lt;/span&gt;&#xA;&#xA;&lt;/a&gt; If you haven’t read that one, I highly recommend going through it first:&lt;/p&gt;&#xA;&lt;p&gt;Now that you’re all caught up, let’s dive back into what you need to build a great app.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-graphics&#34;&gt;1. Graphics&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;h6 id=&#34;a-picture-is-worth-a-thousand-words&#34;&gt;A picture is worth a thousand words&lt;/h6&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Most of the apps in this day and age are driven by graphics. Ingenious graphical illustrations and visual elements in products make them pleasing to use.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Are You Building Your App Right?</title>
+      <link>https://cyrilpillai.com/blogs/mobile_app_essentials/</link>
+      <pubDate>Thu, 25 Jul 2019 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/mobile_app_essentials/</guid>
+      <description>&lt;p&gt;If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.&lt;/p&gt;&#xA;&lt;p&gt;This series post pens down some essentials you should consider integrating into every app you build. Here we go:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

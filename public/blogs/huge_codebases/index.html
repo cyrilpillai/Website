@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/images/logo.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9662PFE3TZ"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9662PFE3TZ');
+        }
+      </script>
+<meta property="og:url" content="https://cyrilpillai.com/blogs/huge_codebases/">
+  <meta property="og:site_name" content="Cyril Pillai">
+  <meta property="og:title" content="A Guide to Tackling Huge Codebases">
+  <meta property="og:description" content="I recently joined GOJEK as a Product Engineer as part of the GO-LOGISTICS team. I’ve been doing Android Development for over four years, but when I first ‘git pulled’ GoHost (the monorepo for the Android consumer app), I was intimidated by the codebase. I have worked with codebases that had four to five contributors, but this was a different beast altogether.
+80&#43; modules, 20&#43; active contributors, ~20 mins for a clean build, and different coding styles/architectures in different modules. Product modules are owned by the respective teams and thus they have the liberty to choose what works best for them.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2019-01-29T23:29:21+05:30">
+    <meta property="article:modified_time" content="2019-01-29T23:29:21+05:30">
+    <meta property="article:tag" content="Codebases">
+    <meta property="article:tag" content="Android">
+    <meta property="article:tag" content="Kotlin">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Guide to Tackling Huge Codebases">
+  <meta name="twitter:description" content="I recently joined GOJEK as a Product Engineer as part of the GO-LOGISTICS team. I’ve been doing Android Development for over four years, but when I first ‘git pulled’ GoHost (the monorepo for the Android consumer app), I was intimidated by the codebase. I have worked with codebases that had four to five contributors, but this was a different beast altogether.
+80&#43; modules, 20&#43; active contributors, ~20 mins for a clean build, and different coding styles/architectures in different modules. Product modules are owned by the respective teams and thus they have the liberty to choose what works best for them.">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+
+
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        width: .5em;
+        height: .5em;
+        background-color: var(--background-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px var(--background-color);
+        border-radius: 1rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: var(--secondary-color);
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+  <title>
+A Guide to Tackling Huge Codebases | Cyril Pillai
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  false ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;        
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                Cyril Pillai
+                
+            </a>
+
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Bytes of Wisdom">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">A Guide to Tackling Huge Codebases</h1>
+            <div class="text-center">
+              Cyril Pillai 
+              <small>|</small>
+              Jan 29, 2019
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/blogs/huge_codebases/cover.webp" alt="A Guide to Tackling Huge Codebases">
+          </div>
+          
+          <article class="page-content  p-2">
+          <p>I recently joined GOJEK as a Product Engineer as part of the GO-LOGISTICS team. I’ve been doing Android Development for over four years, but when I first ‘git pulled’ <strong>GoHost</strong> (the monorepo for the Android consumer app), I was intimidated by the codebase. I have worked with codebases that had four to five contributors, but this was a different beast altogether.</p>
+<p>80+ modules, 20+ active contributors, ~20 mins for a clean build, and different coding styles/architectures in different modules. Product modules are owned by the respective teams and thus they have the liberty to choose what works best for them.</p>
+<blockquote>
+<p>On an unrelated note, codebases are the stuff of folklore at GOJEK. When we launched our app in 2015, all our backend services depended on a legacy codebase named after a South Park character, Stan Marsh. As GOJEK grew, Stan Marsh buckled under the strain. We eventually pulled all its functionality into discrete microservices. Nevertheless, the legacy of Stan Marsh lives on.</p>
+</blockquote>
+<p>I was lucky enough to have access to some of the developers who oversaw the transition from Stan Marsh, and gained a lot of insights. This post pens down my learnings from the last few months on how to deal with huge codebases.</p>
+<h2 id="you-cant-understand-everything">You can’t understand everything</h2>
+<p align="center">
+    <img src="/images/blogs/huge_codebases/know_nothing.webp">
+</p>
+<blockquote>
+<h5 id="this-is-the-hardest-thing-of-all">This is the hardest thing of all.</h5>
+</blockquote>
+<p>All of the previous codebases I’ve worked on/owned had one thing in common — I knew everything, about everything. The legacy ones I inherited took some time and effort but eventually I used to get well-versed with the entire system.</p>
+<p><strong>I tried that approach here and failed miserably</strong>. Initially, I was responsible for a single module (GO-SEND product) out of the 80+ modules. These modules included other products (GO-RIDE, GO-FOOD, GO-TIX etc.), libraries/utilities, SDKs for the products, and product agnostic core/platform code.</p>
+<p>After a few days of diving in the ocean of code and sinking every time, I got frustrated and talked to my Mobile Lead about this.</p>
+<blockquote>
+<h5 id="talking-to-him-made-me-realise-that-no-one-in-the-entire-org-knows-everything-about-the-system">Talking to him made me realise that no one in the entire org knows everything about the system.</h5>
+</blockquote>
+<p>The key takeaway here is to understand the parts you own or would work on, and be oblivious to other moving parts. Changes are being made to the codebase on an hourly basis, and it’s humanly impossible to keep track of everything.</p>
+<h2 id="get-familiar-with-the-architecture-of-the-codebase">Get familiar with the architecture of the codebase</h2>
+<p>Now, when I say be <em><strong>oblivious</strong></em>, I don’t mean everything. It’s a mandatory process to dive into the ocean and sink, but you need to know when to stop. Try to familiarise yourself with the skeleton of the codebase. <strong>Read code from modules that make up the core of the system (platform code that is independent of the products), and understand how your module interacts with that code</strong>. Dig into SDKs and internal libraries that abstract certain third party dependencies, so that the product modules aren’t affected by future changes.</p>
+<h2 id="have-a-specific-goal-in-mind-before-you-dive">Have a specific goal in mind before you dive</h2>
+<p>It’s important to have a reason to dive into the ocean, and to have a well-defined task to finish and get out (because time ticks 🕒). If you don’t have any task, ask your team members to assign you something. It’s better to get up from the chair feeling good about completing something. Definitely beats getting lost in the gigantic world of programming constructs.</p>
+<h2 id="read-code-thoroughly-dont-break-anything">Read code thoroughly, don’t break anything</h2>
+<p>Let’s acknowledge that we developers can be a bit narcissistic about code. We love writing code but reading it bores us to death. Even if we trick our minds into reading someone else’s code, there is usually an urge to rewrite it. The best thing to do here is to be objective and follow one of GOJEK’s <a
+
+	
+	
+		href = "https://medium.com/gojekengineering/go-jek-engineering-guiding-principles-101-9a7bd499ffa2"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		guiding principles
+	</span>
+
+</a>:</p>
+<blockquote>
+<h5 id="every-decision-is-correct-at-the-time-it-is-made"><em><strong>“Every decision is correct at the time it is made”</strong></em></h5>
+</blockquote>
+<p>Spend ample time reading the code and critically evaluate the consequences your changes might have before proceeding.</p>
+<h2 id="follow-the-coding-style-of-the-file-you-are-editing">Follow the coding style of the file you are editing</h2>
+<p>This is to ensure that your changes don’t look out of place, and are aligned with the surrounding environment. It’s super important to maintain consistency no matter how outdated something feels.</p>
+<p>Assume you need to change the filtering condition in a file:</p>
+<blockquote>
+<h5 id="what-this-class-is-still-using-rxjava-10-">What!! This class is still using RxJava 1.0. 😱</h5>
+</blockquote>
+<p><em>Option 1</em></p>
+<pre tabindex="0"><code>• I&#39;ll just update the filter condition as per the new requirement.
+</code></pre><p><em>Option 2</em></p>
+<pre tabindex="0"><code>• But, RxJava 2.0 has been around for such a long time.
+• Let me upgrade it to the latest version.
+after 3 hours
+• I&#39;ve modified a bunch of files and there&#39;s still a lot more to refactor.
+git reverts everything
+• GOTO Option 1.
+</code></pre><h2 id="talk-to-other-devs">Talk to other devs</h2>
+<blockquote>
+<h5 id="rockstar-developer--coding-ninja--10xer--one-man-army--everyone-is-inferior-to-me--i-like-working-alone--others-are-stupid">Rockstar developer / coding ninja / 10Xer / one man army / everyone is inferior to me / I like working alone / others are stupid.</h5>
+</blockquote>
+<p>If you relate to anyone of the above things, you need to change. Can you build systems single handedly? Yes. But to make scalable solutions and improve yourself, <strong>it’s important to throw your ego out of the window</strong>. Be liberal and collaborate with others.</p>
+<p>Coincidentally, this also helps in dealing with huge codebases. Talk to other developers who have worked on the piece of code you’re concerned with. To get more context, ask about the rationale behind the decisions made and the implications new changes would have. Be open to suggestions on the way you should approach the problem.</p>
+<h2 id="improve-it">Improve it</h2>
+<p>— Make the codebase a bit stronger than it previously was by making sure that changes you make are supported by tests.</p>
+<p>— Refactor wherever <em><strong>NECESSARY</strong></em>.</p>
+<p>— Document decisions/assumptions/hacks to make sure the information is present somewhere (apart from the head of an engineer).</p>
+<hr>
+<p><em>Cross posted on <a
+
+	
+	
+		href = "https://www.gojek.io/blog/a-guide-to-tackling-huge-codebases"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Gojek Engineering
+	</span>
+
+</a></em></p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#you-cant-understand-everything">You can’t understand everything</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#get-familiar-with-the-architecture-of-the-codebase">Get familiar with the architecture of the codebase</a></li>
+    <li><a href="#have-a-specific-goal-in-mind-before-you-dive">Have a specific goal in mind before you dive</a></li>
+    <li><a href="#read-code-thoroughly-dont-break-anything">Read code thoroughly, don’t break anything</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#follow-the-coding-style-of-the-file-you-are-editing">Follow the coding style of the file you are editing</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#talk-to-other-devs">Talk to other devs</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#improve-it">Improve it</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/codebases" target="_blank">Codebases</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/android" target="_blank">Android</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/kotlin" target="_blank">Kotlin</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=A%20Guide%20to%20Tackling%20Huge%20Codebases&url=https%3a%2f%2fcyrilpillai.com%2fblogs%2fhuge_codebases%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=A%20Guide%20to%20Tackling%20Huge%20Codebases: https%3a%2f%2fcyrilpillai.com%2fblogs%2fhuge_codebases%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=A%20Guide%20to%20Tackling%20Huge%20Codebases&amp;body=Check%20out%20this%20site https%3a%2f%2fcyrilpillai.com%2fblogs%2fhuge_codebases%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "cyrilpillai" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+ 
+<div class="container py-3" id="recent-posts">
+    
+    
+    <div class="h3 text-center text-secondary py-3">
+        Recent Posts
+    </div>
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/itr_cheatsheet/">
+                        <img src="/images/blogs/itr_cheatsheet/cover.webp" class="card-img-top" alt="ITR Filing Cheatsheet">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/itr_cheatsheet/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="ITR Filing Cheatsheet">ITR Filing Cheatsheet</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>I started filing my own taxes a few years ago by reading up online/watching YouTube videos.</p>
+<p>Coming from a non finance background, I spent a lot of time reading up to understand the different sections, deductions, etc. when I first filed my own taxes. I learnt a lot in the process and was exhilarated …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jan 11, 2023</span>
+                    <a href="/blogs/itr_cheatsheet/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_tips/">
+                        <img src="/images/blogs/mobile_app_tips/cover.webp" class="card-img-top" alt="Six Tips to Build Great Mobile Apps">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_tips/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Six Tips to Build Great Mobile Apps">Six Tips to Build Great …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>This post is a follow up to <a
+
+	
+
+	
+
+	>
+	
+	<span>
+		Are You Building Your App Right?
+	</span>
+
+</a> If you haven’t read that one, I highly recommend going through it first:</p>
+<p>Now that you’re all caught up, let’s dive back into what you need to build a great app.</p>
+<h2 id="1-graphics">1. Graphics</h2>
+<blockquote>
+<h6 id="a-picture-is-worth-a-thousand-words">A picture is worth a thousand words</h6>
+</blockquote>
+<p>Most of the apps …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Aug 22, 2019</span>
+                    <a href="/blogs/mobile_app_tips/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_essentials/">
+                        <img src="/images/blogs/mobile_app_essentials/cover.webp" class="card-img-top" alt="Are You Building Your App Right?">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_essentials/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Are You Building Your App Right?">Are You Building Your App …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.</p>
+<p>This series post …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jul 25, 2019</span>
+                    <a href="/blogs/mobile_app_essentials/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="text-center pt-2">
+    
+    <span class="pt-3">
+        <a href="https://www.linkedin.com/in/cyrilpillai" aria-label="linkedin" target="_blank">
+            <i class="fa-brands fa-linkedin" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+        <a href="https://github.com/cyrilpillai" aria-label="github" target="_blank">
+            <i class="fa-brands fa-square-github" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://twitter.com/cyril_pillai" aria-label="twitter" target="_blank">
+        <i class="fa-brands fa-square-x-twitter" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.instagram.com/cyril.pillai" aria-label="instagram" target="_blank">
+        <i class="fa-brands fa-square-instagram" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.facebook.com/cyril.pillai94" aria-label="facebook" target="_blank">
+        <i class="fa-brands fa-square-facebook" font-size="40px"></i>
+    </a>
+    </span>
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            &copy; 2025  Cyril Pillai. All rights reserved.
+            <div class="text-secondary">
+                Theme by
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

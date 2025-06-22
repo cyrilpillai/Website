@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/images/logo.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9662PFE3TZ"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9662PFE3TZ');
+        }
+      </script>
+<meta property="og:url" content="https://cyrilpillai.com/blogs/aad_perks/">
+  <meta property="og:site_name" content="Cyril Pillai">
+  <meta property="og:title" content="Perks of being an Associate Android Developer ">
+  <meta property="og:description" content="Note: This is not a guide explaining the format of the exam or how to crack it and become a Google certified Associate Android Developer. Its just me blabbering about my experience and the impact this certification has had on me. This is my first ever attempt at writing a blog. I hope you guys will go easy on me.
+Let’s get started I am a Google fanboy. I try to stay updated with the happenings in the Googley world, be it Android, Web, Cloud, VR, AR, ML, IoT, hot air balloons, modular phones, glasses and pretty much everything that is Google. I admired Google since college. I remember reading Google’s Wikipedia page for the first time and fantasizing about visiting Googleplex at least once in my lifetime. Deep down, I knew it was a far fetched dream but “WHAT IF” was a thought that I held on to for a very long time.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2018-01-01T23:29:21+05:30">
+    <meta property="article:modified_time" content="2018-01-01T23:29:21+05:30">
+    <meta property="article:tag" content="Google">
+    <meta property="article:tag" content="Android">
+    <meta property="article:tag" content="I/O">
+    <meta property="article:tag" content="GDD">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Perks of being an Associate Android Developer ">
+  <meta name="twitter:description" content="Note: This is not a guide explaining the format of the exam or how to crack it and become a Google certified Associate Android Developer. Its just me blabbering about my experience and the impact this certification has had on me. This is my first ever attempt at writing a blog. I hope you guys will go easy on me.
+Let’s get started I am a Google fanboy. I try to stay updated with the happenings in the Googley world, be it Android, Web, Cloud, VR, AR, ML, IoT, hot air balloons, modular phones, glasses and pretty much everything that is Google. I admired Google since college. I remember reading Google’s Wikipedia page for the first time and fantasizing about visiting Googleplex at least once in my lifetime. Deep down, I knew it was a far fetched dream but “WHAT IF” was a thought that I held on to for a very long time.">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+
+
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        width: .5em;
+        height: .5em;
+        background-color: var(--background-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px var(--background-color);
+        border-radius: 1rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: var(--secondary-color);
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+  <title>
+Perks of being an Associate Android Developer  | Cyril Pillai
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  false ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;        
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                Cyril Pillai
+                
+            </a>
+
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Bytes of Wisdom">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Perks of being an Associate Android Developer </h1>
+            <div class="text-center">
+              Cyril Pillai 
+              <small>|</small>
+              Jan 1, 2018
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/blogs/aad_perks/cover.jpeg" alt="Perks of being an Associate Android Developer ">
+          </div>
+          
+          <article class="page-content  p-2">
+          <p><em>Note: This is not a guide explaining the format of the exam or how to crack it and become a Google certified Associate Android Developer. Its just me blabbering about my experience and the impact this certification has had on me. This is my first ever attempt at writing a blog. I hope you guys will go easy on me.</em></p>
+<hr>
+<h2 id="lets-get-started">Let’s get started</h2>
+<p>I am a Google fanboy. I try to stay updated with the happenings in the Googley world, be it Android, Web, Cloud, VR, AR, ML, IoT, hot air balloons, modular phones, glasses and pretty much everything that is Google. I admired Google since college. I remember reading Google’s Wikipedia page for the first time and fantasizing about visiting <strong>Googleplex</strong> at least once in my lifetime. Deep down, I knew it was a far fetched dream but <em><strong>“WHAT IF”</strong></em> was a thought that I held on to for a very long time.</p>
+<hr>
+<h2 id="background">Background</h2>
+<p>I am an Android Developer at <strong><a
+
+	
+	
+		href = "https://www.lovelocal.in/"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		m.Paani
+	</span>
+
+</a></strong>. I started my <em><strong>“Developer journey”</strong></em> in 2015, back when I was in college. I have a Bachelors in CS, but the curriculum that we had was pretty outdated and was no where near the current market requirements. We were taught C,C++ for more than a year. I had never heard of Functional Programming, Git, CI/CD, MVC, MVP or any of the other important &amp; useful stuff as I was busy programming a 8085 microprocessor to add two numbers or demonstrating AND gate on a breadboard. Now, don’t get me wrong. I am not saying these have no importance at all and shouldn’t be taught. I do write functions to add two numbers and I use logical operators almost everyday. But introducing the students to the technologies that are currently used is a must have rather than a good to have. I realized that I had to learn things by myself. And that’s when I started learning Android Development, my familiarity with Java helped me a lot.</p>
+<hr>
+<h2 id="google-developers-certification-program-was-announced">Google Developers Certification Program was announced.</h2>
+<p>I have been watching Google I/O livestream for more than 4 years now. Back in 2016, John Souchak announced the launch of the certification program. They weren’t taking candidates at that time, so I clicked the NOTIFY ME button on the website. I had already developed a handful of apps by that time and I was a bit sceptical if I would benefit from such a certification and if it would make any difference at all (spending $100 on an online certification was so not me). They notified me when the program started, but I didn’t register as I was contemplating taking the exam.</p>
+<hr>
+<h2 id="new-year-transition">New Year Transition</h2>
+<p>My friend took the exam in September 2016. He had a rough experience as it took around 60 days for him to get the certification badge. This further cemented my decision of not taking the exam. But then I thought to myself</p>
+<blockquote>
+<h6 id="i-have-nothing-to-lose-this-exam-would-have-0-negative-effects-and-maybe-1-or-more-positive-ones">I have nothing to lose. This exam would have 0 negative effects and maybe 1 or more positive ones.</h6>
+</blockquote>
+<p>It was New Year’s eve when I registered for the exam exactly at 6:00 PM IST. I looked at the documentation and the code and dived head first into it. I sat in one corner engrossed in the project. I transitioned from 2016 to 2017 while <strong>CODING</strong> 😎. I completed the project and submitted it for review on the 1st of Jan. I cleared the coding round as well as the exit interview and received my <a
+
+	
+	
+		href = "https://www.credential.net/fed04716-dfd7-4cdd-a5c0-c715203f93c7?key=3e23ab0e9e7da3e91315148114610999255b3b234940d3e96e77f4d6c0402e8f"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		badge
+	</span>
+
+</a> within 2 weeks.</p>
+<p align="center">
+    <img src="/images/blogs/aad_perks/mail/one.webp">
+</p>
+<hr>
+<h2 id="call-from-a-googler">Call from a Googler</h2>
+<p>Sometime around mid of March ’17, I received a call from a guy named Akash Shukla who informed me that he works at Google India in their Bengaluru office and they were organizing a summit in Bengaluru for the first batch of the AAD alumni and I was among them. This was an all expenses paid trip and I was as happy as I could be because I was invited to this summit (I had never attended a Developer community event before) and more importantly I had a chat with a Googler. Akash also asked me for a date and time that I would be available on as they had planned a <strong>SURPRISE</strong> for me. I gave him a date and time and tried getting the secret from him but failed at it. He sent me a calendar invite with a link to Hangouts. I figured it would be a video chat with them and I was pretty excited about it.</p>
+<hr>
+<h2 id="surprise">Surprise</h2>
+<p>Finally the day came, I left my office and reached home as soon as I could. I turned on my computer and opened the Hangouts link and stared at it for a long time. The chat was supposed to start at 9.00 PM IST, but no one connected to the link except me. At 9.30 PM, I had a knock on my door and to my surprise it was Akash Shukla &amp; John Souchak with a few camera guys. Video chat was the height of my imagination, I could never imagine John Souchak <em>(the guy who started the certifications program)</em>, coming to my house and talking to me. John told me about how this is his first time in India and he visited alumni in other cities before coming to Mumbai. They told me that they planned on making a video on my journey and would publish it on Google Developers India’s YouTube channel. I mean, I have subscribed to that channel and seen others’ stories and here I was being told that my story would be published as well. They asked me about my journey and how I got into Android Development, I was super nervous as I had never been in front of a camera and as a result I fumbled a bit and messed up here and there but there were no retakes for me to fix things. 🙁</p>
+<p>After that, they gave me another surprise probably the biggest one I have ever received in my entire life.</p>
+<blockquote>
+<h6 id="invitation-to-google-io-2017-all-expenses-paid-">Invitation to Google I/O 2017. All expenses paid. 😍</h6>
+</blockquote>
+<p align="center">
+    <img src="/images/blogs/aad_perks/visit/one.webp" width="40%" height="250">
+    <img src="/images/blogs/aad_perks/visit/two.webp" width="40%" height="250">
+</p>
+<p align="center">
+    <img src="/images/blogs/aad_perks/visit/three.webp" width="40%" height="200">
+    <img src="/images/blogs/aad_perks/visit/four.webp" width="40%" height="200">
+</p>
+<h2 id="aad-summit">AAD Summit</h2>
+<p><strong>First times</strong> — Lot of things were happening for the first time.</p>
+<ul>
+<li>Attending a developer summit.</li>
+<li>Boarding a flight.</li>
+<li>Visiting Bengaluru.</li>
+<li>Visiting Google’s office.</li>
+</ul>
+<p>It was a two day event. I met Akash &amp; John again and we got to see Google’s Bengaluru office and I met a lot of other Android Developers. I had a great time meeting others with the same interests as me and talking to them was fun because everyone understood the <em>Android lingo</em>.</p>
+<p align="center">
+    <img src="/images/blogs/aad_perks/blr/one.webp">
+</p>
+<hr>
+<h2 id="google-io-2017">Google I/O 2017</h2>
+<p><strong>First Times</strong> — Lot of first times this time as well.</p>
+<ul>
+<li>Travelling alone.</li>
+<li>Travelling outside of India.</li>
+<li>Boarding an international flight.</li>
+<li>Visiting Silicon Valley || California || USA.</li>
+<li>Visiting Googleplex. <em>(The far fetched dream I mentioned earlier)</em></li>
+<li>Attending I/O in person.</li>
+<li>Seeing Sundar Pichai in real life. <em>(Not up close, but still)</em></li>
+<li>Interacting with different people from around the globe.</li>
+</ul>
+<p>Attending Google I/O was a lifetime experience for me. I hope every developer attends this Developer Conference at least once. Currently, I couldn’t think of attending Google I/O or visiting USA in general because of financial restrictions. Surely sometime in the future, but not any time soon. I was flabbergasted when they invited me to I/O. I was there for a week and that was one of the best experiences of my life. I met Akash &amp; John on the day I landed and they gave us a tour of the Googleplex <em>(which is orders of magnitude better than what I had imagined)</em>. I had a great time at the conference talking to Googlers, developers from other parts of the world, meeting people whom I admired and looked up to, running around Sandboxes witnessing fantastic things created by Developers. I also got a lot of freebies like T-shirt (obvious), Google Home, Photobook, Droids, stickers, a photo of my brainwaves and a lot more. After the conference ended, I went to San Francisco and stayed there for a couple of days and did what tourists normally do in SF <em>(Golden Gate Bridge, Alcatraz Island, Fisherman’s Wharf, Lombard Street, Ghirardelli Square and much more)</em>. I also visited Chipotle which was a few blocks from my hotel because a friend had literally threatened me saying if I didn’t eat a burrito at Chipotle, I would have to face some serious consequences. I also had to buy chocolates for friends and family back in India <em>(that’s how it works)</em>.</p>
+<p align="center">
+    <img src="/images/blogs/aad_perks/io/one.webp">
+</p>
+<hr>
+<h2 id="youtube-video">YouTube Video</h2>
+<p align="center">
+    <img src="/images/blogs/aad_perks/yt/one.webp">
+</p>
+<p>After I/O, it was back to normal again. No more surprises. I started attending events more often now. GDGs, Solve For India roadshow, ML Roadshow, etc. I completely forgot about the video that was shot because it had been months and they hadn’t released anyone’s story yet. Then the Associate Android Developer stories started rolling out somewhere around August. I knew every person whose video was being published and I congratulated them personally. I was eagerly waiting for my video at the start but then the fear of messing up in the video hit me so hard that I actually started hoping they would scrap my video and never publish it on YouTube. Then one day, I received an email from a Googler informing me that they would be publishing my story in a few hours. I became restless, it was the same feeling as we generally get on a day when some important result is going to be announced. I received a notification few hours later, I sat in a corner, plugged in my earphones and watched the video. I have to admit that the video turned out to be much better than I expected. There are some parts where I messed up but I can live with that. And now when I see anyone’s story <em>(not just developer stories, but anyone’s journey in general)</em>, I am much more forgiving about petty errors and mistakes they make as now I have realized that we aren’t actors who would flawlessly say or do something on screen but are normal guys having a tough time hiding our nervousness and excitement while saying what we want to.</p>
+<blockquote>
+<h6 id="dont-judge-me-when-i-fumble-or-make-a-grammatical-mistake-while-speaking-when-youre-watching-this-video">Don’t judge me when I fumble or make a grammatical mistake while speaking when you’re watching this video.</h6>
+</blockquote>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/KySt9FPGD8k?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+<hr>
+<h2 id="google-developer-days-india">Google Developer Days, India</h2>
+<p>Google Developer Days were announced. And I was glad they were hosting a GDD in Bengaluru, India. This was supposed to be the biggest event by Google in India till date. I was pretty excited about it. I registered for it and was immediately added to their wait list. I hoped I would get a reservation but I knew it would be difficult as this wasn’t just any event. People from all around the world would have registered for it. Luckily, after a few weeks I received a mail from Google stating that all of the AADs would have a guaranteed spot in the event. I had a great time at the event and it was much like the I/O experience but at a smaller scale. I met a lot of people and some of them recognized me because of the video and asked me for guidance in taking up the exam. That feeling when someone would start the conversation with “I saw your video” was just amazing. I got a lot of freebies here as well like T-shirt (obvious), some more T-shirts, VR Headset, Android Things kit, stickers and a lot more. This was in the most literal sense, mini I/O. Also, the weather in Bengaluru this time was just awesome. Last time when I visited Bengaluru for the summit in April, I was pretty disappointed with the weather as its known for its wonderful weather and all of the hype seemed justified this time.</p>
+<p align="center">
+    <img src="/images/blogs/aad_perks/gdd/one.webp">
+</p>
+<hr>
+<h2 id="recognition">Recognition</h2>
+<p>After the video was published, a lot of people congratulated me and told me that my story has inspired them to work harder. Lot of people commented on the YouTube video <em>(I have read each and every one of them)</em>, lot of my friends commented on the FB post I shared commenting how proud they felt after watching the video. I got crazy number of friend requests on FB and connection requests on LinkedIn. My college professors, batchmates, seniors &amp; juniors messaged me saying how inspirational the video was and wished me all the best for my future endeavors. My family members watched the video on loop for a couple of days after it was published. My colleagues have appreciated the hard work I have put in but they also constantly keep on joking about my obsession with Google.</p>
+<p align="center">
+    <img src="/images/blogs/aad_perks/rec/one.webp">
+</p>
+<h2 id="lastly">Lastly,</h2>
+<p>If you are an Android Developer who made it to the end of this blog but still isn’t convinced to take the exam, check these out</p>
+<p align="center">
+    <img src="/images/blogs/aad_perks/android/one.webp">
+</p>
+<blockquote>
+<h6 id="yes-i-got-to-take-a-photo-with-the-legends-of-the-android-world">Yes! I got to take a photo with the legends of the Android World.</h6>
+</blockquote>
+<p>P.S: I do realize that this blog has turned out to be a pretty big one. But the things that happened have been much bigger than this and they had to be penned down. 2017 was surely filled with a lot of surprises and I hope 2018 can be as much exciting as 2017, if not more. 😜</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lets-get-started">Let’s get started</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#google-developers-certification-program-was-announced">Google Developers Certification Program was announced.</a></li>
+    <li><a href="#new-year-transition">New Year Transition</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#call-from-a-googler">Call from a Googler</a></li>
+    <li><a href="#surprise">Surprise</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#aad-summit">AAD Summit</a></li>
+    <li><a href="#google-io-2017">Google I/O 2017</a></li>
+    <li><a href="#youtube-video">YouTube Video</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#google-developer-days-india">Google Developer Days, India</a></li>
+    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#lastly">Lastly,</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/google" target="_blank">Google</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/android" target="_blank">Android</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/i/o" target="_blank">I/O</a></li>
+              
+              <li class="list-inline-item"><a href="https://cyrilpillai.com/tags/gdd" target="_blank">GDD</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=Perks%20of%20being%20an%20Associate%20Android%20Developer%20&url=https%3a%2f%2fcyrilpillai.com%2fblogs%2faad_perks%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Perks%20of%20being%20an%20Associate%20Android%20Developer%20: https%3a%2f%2fcyrilpillai.com%2fblogs%2faad_perks%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Perks%20of%20being%20an%20Associate%20Android%20Developer%20&amp;body=Check%20out%20this%20site https%3a%2f%2fcyrilpillai.com%2fblogs%2faad_perks%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "cyrilpillai" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+ 
+<div class="container py-3" id="recent-posts">
+    
+    
+    <div class="h3 text-center text-secondary py-3">
+        Recent Posts
+    </div>
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/itr_cheatsheet/">
+                        <img src="/images/blogs/itr_cheatsheet/cover.webp" class="card-img-top" alt="ITR Filing Cheatsheet">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/itr_cheatsheet/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="ITR Filing Cheatsheet">ITR Filing Cheatsheet</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>I started filing my own taxes a few years ago by reading up online/watching YouTube videos.</p>
+<p>Coming from a non finance background, I spent a lot of time reading up to understand the different sections, deductions, etc. when I first filed my own taxes. I learnt a lot in the process and was exhilarated …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jan 11, 2023</span>
+                    <a href="/blogs/itr_cheatsheet/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_tips/">
+                        <img src="/images/blogs/mobile_app_tips/cover.webp" class="card-img-top" alt="Six Tips to Build Great Mobile Apps">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_tips/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Six Tips to Build Great Mobile Apps">Six Tips to Build Great …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>This post is a follow up to <a
+
+	
+
+	
+
+	>
+	
+	<span>
+		Are You Building Your App Right?
+	</span>
+
+</a> If you haven’t read that one, I highly recommend going through it first:</p>
+<p>Now that you’re all caught up, let’s dive back into what you need to build a great app.</p>
+<h2 id="1-graphics">1. Graphics</h2>
+<blockquote>
+<h6 id="a-picture-is-worth-a-thousand-words">A picture is worth a thousand words</h6>
+</blockquote>
+<p>Most of the apps …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Aug 22, 2019</span>
+                    <a href="/blogs/mobile_app_tips/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/blogs/mobile_app_essentials/">
+                        <img src="/images/blogs/mobile_app_essentials/cover.webp" class="card-img-top" alt="Are You Building Your App Right?">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/mobile_app_essentials/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Are You Building Your App Right?">Are You Building Your App …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><p>If you’re reading this, you’re probably interested in building mobile apps. I am, too. I’ve worked on a variety of mobile apps, and have come to the realisation that there are a few things that you have to integrate in an app no matter what it does and which domain it caters to.</p>
+<p>This series post …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Jul 25, 2019</span>
+                    <a href="/blogs/mobile_app_essentials/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="text-center pt-2">
+    
+    <span class="pt-3">
+        <a href="https://www.linkedin.com/in/cyrilpillai" aria-label="linkedin" target="_blank">
+            <i class="fa-brands fa-linkedin" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+        <a href="https://github.com/cyrilpillai" aria-label="github" target="_blank">
+            <i class="fa-brands fa-square-github" font-size="40px"></i>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://twitter.com/cyril_pillai" aria-label="twitter" target="_blank">
+        <i class="fa-brands fa-square-x-twitter" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.instagram.com/cyril.pillai" aria-label="instagram" target="_blank">
+        <i class="fa-brands fa-square-instagram" font-size="40px"></i>
+    </a>
+    </span>
+    
+
+    
+    <span class="px-1"> 
+    <a href="https://www.facebook.com/cyril.pillai94" aria-label="facebook" target="_blank">
+        <i class="fa-brands fa-square-facebook" font-size="40px"></i>
+    </a>
+    </span>
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            &copy; 2025  Cyril Pillai. All rights reserved.
+            <div class="text-secondary">
+                Theme by
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

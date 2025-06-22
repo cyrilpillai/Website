@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Codebases on Cyril Pillai</title>
+    <link>https://cyrilpillai.com/tags/codebases/</link>
+    <description>Recent content in Codebases on Cyril Pillai</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Jan 2019 23:29:21 +0530</lastBuildDate>
+    <atom:link href="https://cyrilpillai.com/tags/codebases/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Guide to Tackling Huge Codebases</title>
+      <link>https://cyrilpillai.com/blogs/huge_codebases/</link>
+      <pubDate>Tue, 29 Jan 2019 23:29:21 +0530</pubDate>
+      <guid>https://cyrilpillai.com/blogs/huge_codebases/</guid>
+      <description>&lt;p&gt;I recently joined GOJEK as a Product Engineer as part of the GO-LOGISTICS team. I’ve been doing Android Development for over four years, but when I first ‘git pulled’ &lt;strong&gt;GoHost&lt;/strong&gt; (the monorepo for the Android consumer app), I was intimidated by the codebase. I have worked with codebases that had four to five contributors, but this was a different beast altogether.&lt;/p&gt;&#xA;&lt;p&gt;80+ modules, 20+ active contributors, ~20 mins for a clean build, and different coding styles/architectures in different modules. Product modules are owned by the respective teams and thus they have the liberty to choose what works best for them.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
